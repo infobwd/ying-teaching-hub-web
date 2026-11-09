@@ -33,3 +33,42 @@ assert.ok(html.includes('id="themeToggle"'), "theme toggle missing");
 assert.ok(html.includes('href="./styles.css"') && html.includes('src="./app.js"'), "static assets not linked");
 assert.doesNotMatch(html, /\son(?:click|change|load|submit)\s*=/i, "inline handlers prohibited");
 console.log("PASS: public catalog and static shell checks; " + catalog.materials.length + " approved records.");
+
+
+const outlines = JSON.parse(read("data/public-math-outline.json"));
+assert.equal(outlines.schema_version, 1);
+assert.equal(outlines.publication_scope, "PUBLIC_OUTLINE_ONLY");
+assert.ok(Array.isArray(outlines.courses));
+assert.equal(outlines.courses.length, 2, "Only the two curated example courses should be public");
+assert.deepEqual(outlines.courses.map(x => x.id), ["m2", "m4"]);
+assert.deepEqual(outlines.courses.map(x => x.planned_hours), [6, 20]);
+
+const allowedRoot = ["schema_version", "publication_scope", "updated_on", "note", "courses"];
+const allowedCourse = ["id", "grade", "subject", "unit", "title", "planned_hours", "description", "curriculum_state", "student_files_published", "assessment_note", "lessons"];
+const allowedLesson = ["hour", "title", "focus", "guide", "stage", "material_state"];
+assert.deepEqual(Object.keys(outlines).sort(), allowedRoot.sort(), "Outline JSON contains unexpected root keys");
+for (const course of outlines.courses) {
+  assert.ok(Object.keys(course).every(key => allowedCourse.includes(key)), course.id + " has unexpected/private keys");
+  assert.equal(course.curriculum_state, "working_outline");
+  assert.equal(course.student_files_published, 0);
+  assert.equal(course.grade, course.id === "m2" ? "ม.2" : "ม.4");
+  assert.equal(course.lessons.length, course.planned_hours);
+  for (const [index, lesson] of course.lessons.entries()) {
+    assert.deepEqual(Object.keys(lesson).filter(key => !allowedLesson.includes(key)), [], course.id + " includes unexpected lesson data");
+    assert.equal(lesson.hour, index + 1, course.id + " has a gap/duplicate lesson hour");
+    assert.equal(lesson.stage, "planning");
+    assert.equal(lesson.material_state, "not_published", "No unapproved files should be claimed as published");
+    for (const field of ["title", "focus"]) assert.ok(typeof lesson[field] === "string" && lesson[field].trim().length > 4);
+  }
+}
+const mathPage = read("math.html");
+assert.match(mathPage, /<html lang="th">/);
+for (const id of ["courseChooser", "courseContent", "lessonList", "lessonDetail", "selectedLessonTitle", "prevLesson", "nextLesson"]) {
+  assert.ok(mathPage.includes('id="' + id + '"'), "Math page missing " + id);
+}
+assert.ok(mathPage.includes('src="./math.js"'));
+assert.ok(mathPage.includes('href="./math.css"'));
+assert.doesNotMatch(mathPage, /\son(?:click|change|load|submit)\s*=/i, "Inline handlers prohibited");
+assert.ok(html.includes('href="./math.html"'), "Home must link to math page");
+assert.ok(read("math.js").includes("PUBLIC_OUTLINE_ONLY"));
+console.log("PASS: safe M2/M4 public math outline checks (6 + 20 hours).");
