@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="Ying Teaching Hub — พื้นที่รวมสื่อการเรียนรู้สาธารณะที่ได้รับอนุมัติสำหรับครูหญิง">
+  <meta name="theme-color" content="#f7f7fc">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <title>Ying Teaching Hub | ศูนย์กลางงานสอนครูหญิง</title>
+  <link rel="icon" href="./assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">ข้ามไปยังเนื้อหา</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#home" class="brand" aria-label="Ying Teaching Hub กลับหน้าแรก">
+        <img src="./assets/mark.svg" alt="" width="42" height="42">
+        <span class="brand-text"><strong>Ying Teaching Hub</strong><small>พื้นที่งานสอนครูหญิง</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="เมนูหลัก">
+        <a href="#home">หน้าแรก</a><a href="#workspaces">พื้นที่งานสอน</a><a href="#library">คลังสื่อ</a><a href="#roadmap">การพัฒนา</a>
+      </nav>
+      <button id="themeToggle" class="theme-button" type="button" aria-label="เปลี่ยนเป็นโหมดมืด" aria-pressed="false" title="เปลี่ยนธีม"><span id="themeIcon" aria-hidden="true">☾</span></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="home" class="hero container" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="status-dot"></span> เว็บไซต์ระยะเริ่มต้น · เฉพาะข้อมูลสาธารณะ</span>
+        <p class="kicker">A LITTLE SPACE FOR BIG LEARNING</p>
+        <h1 id="heroTitle">ทุกเรื่องการสอน<br><span class="gradient-text">อยู่ในที่เดียว</span></h1>
+        <p class="hero-desc">สวัสดีค่ะ ยินดีต้อนรับสู่พื้นที่งานสอนของครูหญิง ที่จะค่อย ๆ เติบโตเป็นแหล่งรวมบทเรียน ใบงาน และสื่อการเรียนรู้ที่ค้นหาได้ง่าย</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#library">สำรวจคลังสื่อ <span aria-hidden="true">↗</span></a>
+          <a class="button secondary" href="#workspaces">ดูพื้นที่งานสอน</a>
+        </div>
+        <p class="privacy-note"><span aria-hidden="true">🔒</span> คะแนนนักเรียนและงานส่วนตัวไม่เผยแพร่ในเว็บไซต์สาธารณะนี้</p>
+      </div>
+      <aside class="hero-card" aria-label="ภาพรวมพื้นที่สาธารณะ">
+        <div class="note-header"><span class="note-mini-label">YING'S TEACHING NOTEBOOK</span><span class="note-sparkle" aria-hidden="true">✦</span></div>
+        <div class="note-illustration" aria-hidden="true"><span class="book book-one"></span><span class="book book-two"></span><span class="book book-three"></span><span class="illustration-star star-one">✳</span><span class="illustration-star star-two">✧</span></div>
+        <div class="note-bottom">
+          <div><span class="label-overline">คลังสื่อที่เผยแพร่แล้ว</span><strong id="publicCount" class="big-number">—</strong><span class="label-suffix">รายการ</span></div>
+          <span class="soft-pill">เฉพาะฉบับผ่านการตรวจ</span>
+        </div>
+        <div class="note-doodle" aria-hidden="true"></div>
+      </aside>
+    </section>
+
+    <section class="intro-band" aria-label="แนวทางของเว็บไซต์">
+      <div class="container intro-grid">
+        <div><span class="small-icon" aria-hidden="true">✎</span><div><strong>สอนอย่างมีระบบ</strong><p>จัดแยกเนื้อหาตามรายวิชาและระดับชั้น</p></div></div>
+        <div><span class="small-icon" aria-hidden="true">✓</span><div><strong>ใช้สื่อที่ตรวจแล้ว</strong><p>เผยแพร่เฉพาะเอกสารที่อนุมัติ</p></div></div>
+        <div><span class="small-icon" aria-hidden="true">♡</span><div><strong>เรียนรู้ต่อเนื่อง</strong><p>เติบโตไปพร้อมทุกคาบเรียน</p></div></div>
+      </div>
+    </section>
+
+    <section id="workspaces" class="section container" aria-labelledby="workspaceTitle">
+      <div class="section-heading"><div><p class="section-kicker">OUR WORKSPACES</p><h2 id="workspaceTitle">สองพื้นที่งานสอน <span class="heading-accent">หนึ่งเป้าหมาย</span></h2><p>จัดงานให้เป็นหมวดหมู่ เพื่อหยิบใช้สื่อได้ง่ายขึ้นในอนาคต</p></div></div>
+      <div class="workspace-grid">
+        <article class="workspace-card school-card">
+          <div class="workspace-icon" aria-hidden="true">⌂</div>
+          <span class="workspace-type">งานสอนประจำ</span><h3>ห้องเรียนในโรงเรียน</h3>
+          <p>พื้นที่สำหรับโครงสร้างรายวิชา แผนการจัดการเรียนรู้ และสื่อประกอบการสอน</p>
+          <div class="card-footer"><span class="muted-status">ยังไม่เปิดข้อมูลส่วนตัว</span><a href="#library">ดูสื่อสาธารณะ <span aria-hidden="true">↗</span></a></div>
+        </article>
+        <article class="workspace-card tutoring-card">
+          <div class="workspace-icon" aria-hidden="true">∑</div>
+          <span class="workspace-type">งานสอนพิเศษ</span><h3>มุมเรียนรู้เพิ่มเติม</h3>
+          <p>พื้นที่เตรียมบทเรียน ใบงาน แบบฝึกหัด และสื่อเสริมตามลำดับการเรียนรู้</p>
+          <div class="card-footer"><span class="muted-status">อยู่ระหว่างเตรียมสื่อ</span><a href="#library">ดูสื่อสาธารณะ <span aria-hidden="true">↗</span></a></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="library" class="section library-section" aria-labelledby="libraryTitle">
+      <div class="container">
+        <div class="section-heading library-heading">
+          <div><p class="section-kicker">LEARNING LIBRARY</p><h2 id="libraryTitle">คลังสื่อการเรียนรู้</h2><p>ค้นหาเฉพาะสื่อที่ตรวจสอบและอนุมัติให้เผยแพร่แล้วเท่านั้น</p></div>
+          <span class="library-count" id="catalogCount" aria-live="polite">กำลังตรวจสอบรายการ…</span>
+        </div>
+        <div class="filters" role="search">
+          <label class="field search-field"><span>ค้นหาชื่อสื่อหรือหัวข้อ</span><span class="input-shell"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" autocomplete="off" placeholder="เช่น เลขยกกำลัง หรือ แบบฝึกหัด" /></span></label>
+          <label class="field"><span>ประเภทงานสอน</span><select id="workspaceFilter"><option value="all">ทั้งหมด</option><option value="school">งานสอนประจำ</option><option value="tutoring">งานสอนพิเศษ</option></select></label>
+          <label class="field"><span>ระดับชั้น</span><select id="levelFilter"><option value="all">ทุกระดับชั้น</option></select></label>
+        </div>
+        <div id="catalogMessage" class="catalog-message" role="status" aria-live="polite">กำลังโหลดคลังสื่อ…</div>
+        <div id="materialGrid" class="material-grid" aria-label="รายการสื่อที่ได้รับอนุมัติ"></div>
+        <div id="emptyState" class="empty-state" hidden>
+          <div class="empty-art" aria-hidden="true">▤</div>
+          <h3 id="emptyTitle">กำลังเตรียมคลังสื่อ</h3>
+          <p id="emptyDescription">ยังไม่มีสื่อที่อนุมัติให้เผยแพร่ในขณะนี้ หากมีสื่อใหม่จะปรากฏที่นี่</p>
+          <button type="button" id="resetFilters" class="button small secondary" hidden>ล้างตัวกรอง</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap" class="section container" aria-labelledby="roadmapTitle">
+      <div class="section-heading"><div><p class="section-kicker">WHAT'S NEXT</p><h2 id="roadmapTitle">พื้นที่นี้จะเติบโตต่อไป</h2><p>ส่วนที่เกี่ยวข้องกับข้อมูลส่วนตัวจะเปิดเมื่อระบบความปลอดภัยพร้อมเท่านั้น</p></div></div>
+      <div class="roadmap-grid">
+        <article class="roadmap-card active"><span class="step-number">01</span><span class="step-state">กำลังพัฒนา</span><h3>เว็บไซต์และคลังสื่อสาธารณะ</h3><p>หน้าแรก ค้นหาสื่อที่อนุมัติแล้ว และรองรับมือถือ</p></article>
+        <article class="roadmap-card"><span class="step-number">02</span><span class="step-state">แผนระยะถัดไป</span><h3>พื้นที่งานส่วนตัวครู</h3><p>ตารางสอน งานที่ต้องทำ และไฟล์ภายใน ผ่านระบบเข้าสู่ระบบที่ปลอดภัย</p></article>
+        <article class="roadmap-card"><span class="step-number">03</span><span class="step-state">ยังไม่เปิดบริการ</span><h3>ผลการเรียนรายบุคคล</h3><p>นักเรียนและผู้ปกครองจะเห็นเฉพาะผลที่ได้รับอนุญาตและรับรองแล้ว</p></article>
+      </div>
+      <div class="safety-banner"><span class="safety-symbol" aria-hidden="true">♡</span><div><strong>พื้นที่การเรียนรู้ที่เคารพความเป็นส่วนตัว</strong><p>เว็บไซต์นี้ยังไม่มีระบบเข้าสู่ระบบหรือแสดงคะแนนนักเรียน กรุณาอย่าส่งข้อมูลส่วนบุคคลผ่านช่องทางสาธารณะ</p></div></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand"><img src="./assets/mark.svg" alt="" width="34" height="34"><div><strong>Ying Teaching Hub</strong><small>ครูหญิง · นิรมล</small></div></div>
+      <p>จัดการความรู้เพื่อการเรียนรู้อย่างต่อเนื่อง</p>
+      <a href="#home">กลับขึ้นด้านบน ↑</a>
+    </div>
+  </footer>
+
+  <nav class="mobile-nav" aria-label="เมนูมือถือ">
+    <a href="#home"><span aria-hidden="true">⌂</span>หน้าแรก</a>
+    <a href="#workspaces"><span aria-hidden="true">▦</span>งานสอน</a>
+    <a href="#library"><span aria-hidden="true">▤</span>คลังสื่อ</a>
+    <a href="#roadmap"><span aria-hidden="true">✦</span>แผนพัฒนา</a>
+  </nav>
+</body>
+</html>
