@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "publication_scope": "PUBLIC_OUTLINE_ONLY",
+  "updated_on": "2026-11-09",
+  "note": "ข้อมูลนี้เป็นโครงสร้างการเรียนรู้สำหรับแสดงตัวอย่าง ไม่ใช่ตารางเรียนจริงหรือการยืนยันว่าสื่อผ่านการตรวจรับแล้ว",
+  "courses": [
+    {
+      "id": "m2",
+      "grade": "ม.2",
+      "subject": "คณิตศาสตร์เพิ่มเติม",
+      "unit": "หน่วยที่ 2",
+      "title": "การประยุกต์ของจำนวนเต็มและเลขยกกำลัง",
+      "planned_hours": 6,
+      "description": "เชื่อมโยงจำนวนเต็มและเลขยกกำลังกับการคำนวณและการแก้โจทย์ปัญหาอย่างมีเหตุผล",
+      "curriculum_state": "working_outline",
+      "student_files_published": 0,
+      "lessons": [
+        {
+          "hour": 1,
+          "title": "อ่านและวิเคราะห์โจทย์ประยุกต์",
+          "focus": "ระบุข้อมูล เงื่อนไข และสิ่งที่โจทย์ต้องการ",
+          "guide": "ฝึกแยกข้อมูลสำคัญก่อนเลือกวิธีคำนวณ",
+          "stage": "planning",
+          "material_state": "not_published"
+        },
+        {
+          "hour": 2,
+          "title": "คิดคำนวณหลายขั้นตอน",
+          "focus": "จำนวนเต็ม วงเล็บ และเลขยกกำลัง",
+          "guide": "ทบทวนลำดับการดำเนินการและตรวจความสมเหตุสมผล",
+          "stage": "planning",
+          "material_state": "not_published"
+        },
+        {
+          "hour": 3,
+          "title": "สัญกรณ์วิทยาศาสตร์และโจทย์ปัญหา",
+          "focus": "เขียนจำนวนในรูป a × 10ⁿ และประยุกต์ใช้",
+          "guide": "ตรวจการเทียบหน่วยและการคำนวณเมื่อเลขชี้กำลังต่างกัน",
+          "stage": "planning",
+          "material_state": "not_published"
+        },
+        {
+          "hour": 4,
+          "title": "การเพิ่มและลดจำนวนแบบทวีคูณ",
+          "focus": "คูณซ้ำทีละรอบและใช้เลขยกกำลังอธิบายการเปลี่ยนแปลง",
+          "guide": "แยกค่าเริ่มต้น ตัวคูณต่อรอบ และจำนวนรอบให้ชัด",
+          "stage": "planning",
+          "material_state": "not_published"
+        },
+        {
+          "hour": 5,
+          "title": "โจทย์ท้าทายและการตรวจคำตอบ",
+          "focus": "แก้โจทย์หลายขั้นตอนและเปรียบเทียบวิธีคิด",
+          "guide": "ฝึกอธิบายเหตุผลและประเมินคำตอบ",
+          "stage": "planning",
+          "material_state": "not_published"
+        },
+        {
+          "hour": 6,
+          "title": "บูรณาการและประเมินผล",
+          "focus": "ประยุกต์จำนวนเต็มและเลขยกกำลังแก้สถานการณ์",
+          "guide": "เตรียมแบบฝึกสรุปและประเมินความเข้าใจ",
+          "stage": "planning",
+          "material_state": "not_published"
+        }
+      ]
+    },
+    {
+      "id": "m4",
+      "grade": "ม.4",
+      "subject": "คณิตศาสตร์เพิ่มเติม",
+      "unit": "หน่วยตรรกศาสตร์",
+      "title": "ตรรกศาสตร์",
+      "planned_hours": 20,
+      "description": "เรียนรู้ประพจน์ ตารางค่าความจริง ความสมมูล การอ้างเหตุผล และตัวบ่งปริมาณอย่างเป็นลำดับ",
+      "curriculum_state": "working_outline",
+      "student_files_published": 0,
+      "assessment_note": "แบบทดสอบก่อนเรียนและหลังเรียนไม่รวมใน 20 ชั่วโมง",
+      "lessons": [
+        {
+          "hour": 1,
+          "title": "ประพจน์และตัวเชื่อม",
+          "focus": "ทบทวนการพิจารณาประพจน์และความหมายของตัวเชื่อม",
+          "stage": "planning",
+          "material_state": "not_published"
+        },
+        {
+          "hour": 2,
+          "title": "ตารางค่าความจริง",
+          "focus": "สร้างและใช้ตารางค่าความจริงของประพจน์ที่ประกอบกัน",
+          "stage": "planning",
+          "material_state": "not_published"
+        },
+        {
+          "hour": 3,
+          "title": "ตารางค่าความจริง",
+          "focus": "สร้างและใช้ตารางค่าความจริงของประพจน์ที่ประกอบกัน",
+          "stage": "planning",
+          "material_state": "not_published"
+        },
+        {
+          "hour": 4,
+          "title": "สมมูลของประพจน์",
+          "focus": "ตรวจข้อความสมมูลและการเขียนข้อความที่สมมูลกัน",
+          "stage": "planning",
+          "material_state": "not_published"
+        },
+        {
+          "hour": 5,
+          "title": "สมมูลของประพจน์",
+          "focus": "ตรวจข้อความสมมูลและการเขียนข้อความที่สมมูลกัน",
+          "stage": "planning",
+          "material_state": "not_published"
+        },
+        {
+          "hour": 6,
+          "title": "การเขียนข้อความที่สมมูลกัน",
+          "focus": "ตรวจข้อความสมมูลและการเขียนข้อความที่สมมูลกัน",
+          "stage": "planning",
+          "material_state": "not_published"
+        },
+        {
+          "hour": 7,
+          "title": "นิเสธของประพจน์",
+          "focus": "หานิเสธและตรวจความหมายของข้อความ",
+          "stage": "planning",
+          "material_state": "not_published"
+        },
+        {
+          "hour": 8,
+          "title": "สัจนิรันดร์",
+          "focus": "ตรวจประพจน์ที่เป็นจริงทุกกรณี",
+          "stage": "planning",
+          "material_state": "not_published"
+        },
+        {
+          "hour": 9,
+          "title": "สัจนิรันดร์",
+          "focus": "ตรวจประพจน์ที่เป็นจริงทุกกรณี",
+          "stage": "planning",
+          "material_state": "not_published"
+        },
+        {
+          "hour": 10,
+          "title": "การอ้างเหตุผล",
+          "focus": "ตรวจความสมเหตุสมผลของข้อสรุป",
+          "stage": "planning",
+          "material_state": "not_published"
+        },
+        {
+          "hour": 11,
+          "title": "การอ้างเหตุผล",
+          "focus": "ตรวจความสมเหตุสมผลของข้อสรุป",
+          "stage": "planning",
+          "material_state": "not_published"
+        },
+        {
+          "hour": 12,
+          "title": "การอ้างเหตุผล",
+          "focus": "ตรวจความสมเหตุสมผลของข้อสรุป",
+          "stage": "planning",
+          "material_state": "not_published"
+        },
+        {
+          "hour": 13,
+          "title": "ตัวบ่งปริมาณ",
+          "focus": "อ่านและแปลความหมายข้อความที่มีตัวบ่งปริมาณ",
+          "stage": "planning",
+          "material_state": "not_published"
+        },
+        {
+          "hour": 14,
+          "title": "ตัวบ่งปริมาณ",
+          "focus": "อ่านและแปลความหมายข้อความที่มีตัวบ่งปริมาณ",
+          "stage": "planning",
+          "material_state": "not_published"
+        },
+        {
+          "hour": 15,
+          "title": "ตัวบ่งปริมาณ",
+          "focus": "อ่านและแปลความหมายข้อความที่มีตัวบ่งปริมาณ",
+          "stage": "planning",
+          "material_state": "not_published"
+        },
+        {
+          "hour": 16,
+          "title": "ตัวบ่งปริมาณ",
+          "focus": "อ่านและแปลความหมายข้อความที่มีตัวบ่งปริมาณ",
+          "stage": "planning",
+          "material_state": "not_published"
+        },
+        {
+          "hour": 17,
+          "title": "สมมูลและนิเสธที่มีตัวบ่งปริมาณ",
+          "focus": "แปลงและตรวจค่าความจริงของข้อความ",
+          "stage": "planning",
+          "material_state": "not_published"
+        },
+        {
+          "hour": 18,
+          "title": "สมมูลและนิเสธที่มีตัวบ่งปริมาณ",
+          "focus": "แปลงและตรวจค่าความจริงของข้อความ",
+          "stage": "planning",
+          "material_state": "not_published"
+        },
+        {
+          "hour": 19,
+          "title": "สมมูลและนิเสธที่มีตัวบ่งปริมาณ",
+          "focus": "แปลงและตรวจค่าความจริงของข้อความ",
+          "stage": "planning",
+          "material_state": "not_published"
+        },
+        {
+          "hour": 20,
+          "title": "บูรณาการและประเมินผล",
+          "focus": "ทบทวนความสัมพันธ์ของแนวคิดตรรกศาสตร์ทั้งหน่วย",
+          "stage": "planning",
+          "material_state": "not_published"
+        }
+      ]
+    }
+  ]
+}

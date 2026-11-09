@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f7f7fc">
+  <meta name="description" content="คณิตศาสตร์กับครูหญิง — ตัวอย่างเส้นทางการเรียนรู้ ม.2 และ ม.4 พร้อมผังเนื้อหารายชั่วโมง">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <title>คณิตศาสตร์กับครูหญิง | Ying Teaching Hub</title>
+  <link rel="icon" href="./assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./math.css">
+  <script defer src="./math.js"></script>
+</head>
+<body>
+  <a href="#math-main" class="skip-link">ข้ามไปยังเนื้อหา</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="./index.html#home" class="brand" aria-label="กลับหน้าแรก Ying Teaching Hub">
+        <img src="./assets/mark.svg" width="42" height="42" alt="">
+        <span class="brand-text"><strong>Ying Teaching Hub</strong><small>คณิตศาสตร์กับครูหญิง</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="เมนูเว็บไซต์">
+        <a href="./index.html#home">หน้าแรก</a>
+        <a href="#courses" aria-current="page">เส้นทางคณิตศาสตร์</a>
+        <a href="./index.html#library">คลังสื่อที่เผยแพร่</a>
+      </nav>
+      <button type="button" id="themeToggle" class="theme-button" aria-label="เปลี่ยนเป็นโหมดมืด" aria-pressed="false"><span id="themeIcon" aria-hidden="true">☾</span></button>
+    </div>
+  </header>
+
+  <main id="math-main">
+    <section class="math-hero">
+      <div class="container math-hero-inner">
+        <div>
+          <span class="math-eyebrow"><span aria-hidden="true">✳</span> KRU YING · MATHEMATICS</span>
+          <h1>คณิตศาสตร์<br><span class="gradient-text">กับครูหญิง</span></h1>
+          <p class="math-lead">ค่อย ๆ เรียนรู้อย่างเป็นขั้นตอน มองเห็นภาพรวมของแต่ละหน่วย และรู้ว่าแต่ละชั่วโมงจะได้พบอะไร</p>
+          <div class="math-hero-pills" aria-label="จุดเด่นของหน้า">
+            <span>ม.2 · จำนวนเต็มและเลขยกกำลัง</span>
+            <span>ม.4 · ตรรกศาสตร์</span>
+          </div>
+          <a class="button primary" href="#courses">สำรวจแผนการเรียน <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="math-art" aria-hidden="true">
+          <div class="math-art-circle"></div>
+          <div class="math-art-paper paper-back"><span>√x</span><span>+ × ÷</span></div>
+          <div class="math-art-paper paper-front"><span>f(x)</span><span>∑</span><span>π</span></div>
+          <span class="math-art-star art-star-one">✦</span><span class="math-art-star art-star-two">✧</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="math-disclaimer container" aria-label="ข้อควรรู้">
+      <span class="math-info-icon" aria-hidden="true">i</span>
+      <div><strong>พื้นที่แนะนำโครงสร้างบทเรียน</strong>
+        <p>ข้อมูลด้านล่างเป็นแนวทางจัดลำดับเนื้อหา ไม่ใช่ตารางสอนที่ยืนยันแล้ว และยังไม่มีชีทที่เปิดเผยแพร่ในสองหน่วยนี้ หากสื่อผ่านการตรวจรับแล้วจึงจะเพิ่มลิงก์ใช้งาน</p>
+      </div>
+    </section>
+
+    <section id="courses" class="section container math-courses" aria-labelledby="mathCoursesTitle">
+      <div class="section-heading">
+        <div><p class="section-kicker">CHOOSE YOUR LEARNING PATH</p><h2 id="mathCoursesTitle">เลือกเส้นทางการเรียนรู้</h2><p>เลือกชั้นเรียนเพื่อดูหน่วยการเรียนรู้และชั่วโมงต่าง ๆ</p></div>
+      </div>
+
+      <div id="courseChooser" class="course-chooser" role="group" aria-label="เลือกระดับชั้น">
+        <button class="course-choice" type="button" data-course="m2" aria-pressed="true"><span class="choice-grade">ม.2</span><span class="choice-info"><strong>จำนวนเต็มและเลขยกกำลัง</strong><small>คณิตศาสตร์เพิ่มเติม · 6 ชั่วโมง</small></span><span class="choice-arrow" aria-hidden="true">↗</span></button>
+        <button class="course-choice" type="button" data-course="m4" aria-pressed="false"><span class="choice-grade">ม.4</span><span class="choice-info"><strong>ตรรกศาสตร์</strong><small>คณิตศาสตร์เพิ่มเติม · 20 ชั่วโมง</small></span><span class="choice-arrow" aria-hidden="true">↗</span></button>
+      </div>
+
+      <div id="mathLoadError" class="math-error" role="status" hidden>
+        <strong>ยังเปิดแผนบทเรียนไม่ได้</strong>
+        <p>โปรดตรวจสอบการเชื่อมต่อและโหลดหน้าเว็บใหม่</p>
+      </div>
+      <div id="courseContent" aria-live="off">
+        <div class="math-course-header">
+          <div class="math-course-heading">
+            <span id="courseLevel" class="math-course-level">ม.2 · คณิตศาสตร์เพิ่มเติม</span>
+            <h3 id="courseTitle">การประยุกต์ของจำนวนเต็มและเลขยกกำลัง</h3>
+            <p id="courseDescription">เลือกชั้นเรียนเพื่อดูแผนรายชั่วโมง</p>
+          </div>
+          <div class="math-hour-total"><span id="courseHours">6</span><small>ชั่วโมงในแผน</small></div>
+        </div>
+
+        <div class="math-summary-strip">
+          <span><span aria-hidden="true">▦</span> <strong id="courseUnit">หน่วยที่ 2</strong></span>
+          <span><span aria-hidden="true">◷</span> <strong id="publishedCount">ยังไม่มีชีทเผยแพร่</strong></span>
+          <span><span aria-hidden="true">✓</span> <strong>แสดงโครงเนื้อหาเท่านั้น</strong></span>
+        </div>
+
+        <div class="math-learning-layout">
+          <div class="math-learning-list">
+            <div class="list-topline"><h3>เลือกชั่วโมงเรียน</h3><span id="lessonListCount">6 ชั่วโมง</span></div>
+            <div id="lessonList" class="lesson-list" aria-label="รายชื่อชั่วโมงเรียน"></div>
+          </div>
+          <div class="lesson-detail" id="lessonDetail" tabindex="-1" aria-labelledby="selectedLessonTitle">
+            <span id="selectedHour" class="detail-hour">ชั่วโมงที่ 1</span>
+            <h3 id="selectedLessonTitle">กำลังเปิดแผนบทเรียน…</h3>
+            <p id="selectedFocus" class="selected-focus"></p>
+            <div class="learning-note"><span class="learning-note-icon" aria-hidden="true">✎</span><div><strong>แนวทางการเรียนรู้</strong><p id="selectedGuide"></p></div></div>
+            <div class="detail-status"><span class="detail-status-icon" aria-hidden="true">▤</span><div><strong>สื่อการเรียนรู้</strong><p id="selectedMaterialStatus">ยังไม่มีชีทที่อนุมัติให้เผยแพร่</p></div></div>
+            <a href="./index.html#library" class="detail-library-link">ไปยังคลังสื่อสาธารณะ <span aria-hidden="true">↗</span></a>
+            <div class="lesson-navigation"><button type="button" id="prevLesson" class="button secondary small">← ชั่วโมงก่อนหน้า</button><button type="button" id="nextLesson" class="button secondary small">ชั่วโมงถัดไป →</button></div>
+          </div>
+        </div>
+        <p class="course-footnote" id="courseFootnote">ยังไม่มีการรับรองลำดับชั่วโมงนี้ให้เป็นตารางสอนจริง</p>
+      </div>
+    </section>
+
+    <section class="math-next-section">
+      <div class="container math-next-card">
+        <div><p class="section-kicker">NEXT STEP</p><h2>เรียนรู้ทีละเรื่อง เติบโตทีละก้าว</h2><p>เมื่อครูหญิงตรวจและอนุมัติใบงานแล้ว จะนำสื่อที่เปิดเผยแพร่ได้มาเชื่อมกับแต่ละชั่วโมง โดยแยกเฉลยภายในและข้อมูลนักเรียนออกจากเว็บไซต์สาธารณะ</p></div>
+        <a href="./index.html#library" class="button primary">ดูคลังสื่อสาธารณะ <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand"><img src="./assets/mark.svg" alt="" width="34" height="34"><div><strong>Ying Teaching Hub</strong><small>คณิตศาสตร์กับครูหญิง</small></div></div>
+      <p>ข้อมูลแผนบทเรียนสำหรับสำรวจ ไม่ใช่ระบบคะแนนนักเรียน</p>
+      <a href="#math-main">กลับขึ้นด้านบน ↑</a>
+    </div>
+  </footer>
+  <nav class="mobile-nav" aria-label="เมนูมือถือ">
+    <a href="./index.html#home"><span aria-hidden="true">⌂</span>หน้าแรก</a>
+    <a href="#courses" aria-current="page"><span aria-hidden="true">∑</span>คณิตศาสตร์</a>
+    <a href="./index.html#library"><span aria-hidden="true">▤</span>คลังสื่อ</a>
+    <a href="./index.html#roadmap"><span aria-hidden="true">✦</span>แผนพัฒนา</a>
+  </nav>
+</body>
+</html>
