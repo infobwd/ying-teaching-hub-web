@@ -51,7 +51,7 @@ for (const level of PRACTICE_LEVELS) {
     assert.equal(gradeExercise(ex, { [firstKey]: "?" }).unanswered, ex.maxScore);
   }
 }
-assert.equal(diagnose(createExercise("B1"),0,2).column, "p ∧ ~q");
+assert.equal(diagnose(createExercise("B1"),0,3).column, "p ∧ ~q");
 assert.equal(diagnose(createExercise("A1"),0,0).column, "p");
 assert.throws(() => createExercise("UNKNOWN"), /ไม่พบ/);
 assert.throws(() => levelQuestions("UNKNOWN"), /ระดับ/);
