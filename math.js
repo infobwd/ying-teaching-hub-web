@@ -10,7 +10,7 @@
     selectedTitle: $("selectedLessonTitle"), selectedFocus: $("selectedFocus"),
     selectedGuide: $("selectedGuide"), selectedMaterial: $("selectedMaterialStatus"),
     footnote: $("courseFootnote"), previous: $("prevLesson"), next: $("nextLesson"),
-    themeToggle: $("themeToggle"), themeIcon: $("themeIcon")
+    themeToggle: $("themeToggle"), themeIcon: $("themeIcon"), truthLab: $("truthTableLabLink")
   };
   const selection = { courseId: "m2", hour: 1 };
   let courses = [];
@@ -129,6 +129,8 @@
     selectors.selectedFocus.textContent = lesson.focus;
     selectors.selectedGuide.textContent = lesson.guide || lesson.focus;
     selectors.selectedMaterial.textContent = "ยังไม่มีชีทที่อนุมัติให้เผยแพร่ในชั่วโมงนี้";
+    // The interactive prototype is separate from teacher-approved PDF materials.
+    selectors.truthLab.hidden = !(course.id === "m4" && (lesson.hour === 2 || lesson.hour === 3));
     selectors.footnote.textContent = (course.assessment_note ? course.assessment_note + " · " : "") +
       "ผังนี้เป็นโครงเนื้อหาตัวอย่าง ไม่ใช่ตารางสอนที่ยืนยันแล้ว";
     selectors.previous.disabled = lesson.hour === 1;
