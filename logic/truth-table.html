@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="./truth-table.css">
   <script type="module" src="./truth-table.js"></script>
+  <script type="module" src="./practice.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">ข้ามไปยังบทเรียน</a>
@@ -24,6 +25,7 @@
         <a href="../math.html#m4-h2">ผังวิชา ม.4</a>
         <a href="#learn">เรียนรู้ตัวเชื่อม</a>
         <a href="#builder">สร้างตาราง</a>
+        <a href="#practice">ฝึกทำโจทย์</a>
       </nav>
       <button type="button" id="themeToggle" class="theme-button" aria-label="เปลี่ยนโหมดสี" aria-pressed="false">☾</button>
     </div>
@@ -40,8 +42,9 @@
           <div class="hero-actions">
             <a class="button primary" href="#learn">เริ่มเรียนรู้</a>
             <a class="button secondary" href="#builder">ไปเครื่องสร้างตาราง</a>
+            <a class="button secondary" href="#practice">ฝึกทำโจทย์</a>
           </div>
-          <p class="logic-phase">สื่อทดลองระยะ A–B · อยู่ระหว่างตรวจรับโดยครู · ไม่เก็บคะแนนหรือข้อมูลผู้เรียน</p>
+          <p class="logic-phase">สื่อทดลองระยะ A–C · อยู่ระหว่างตรวจรับโดยครู · ผลการฝึกแสดงเฉพาะบนอุปกรณ์นี้</p>
         </div>
         <div class="logic-hero-art" aria-hidden="true">
           <span class="logic-art-mark">p → q</span>
@@ -165,11 +168,60 @@
         <p class="logic-note">ระบบคำนวณบนอุปกรณ์ของคุณ ไม่ส่งโจทย์หรือผลไปยังฐานข้อมูล และยังไม่ใช่ระบบตรวจคะแนน</p>
       </section>
     </section>
+    <section class="logic-muted-section" id="practice" aria-labelledby="practiceHeading">
+      <div class="container logic-section">
+        <div class="logic-section-intro">
+          <p class="section-kicker">04 · PRACTICE</p>
+          <h2 id="practiceHeading">ฝึกเติมตารางด้วยตัวเอง</h2>
+          <p>เลือกแบบฝึก 3 ระดับ เริ่มจากเติมเฉพาะคำตอบ ก่อนฝึกเติมคอลัมน์ย่อยและสร้างค่าตัวแปรทั้งหมด ตรวจคำตอบได้ทีละช่องหลังส่ง และลองแก้ไขได้ไม่จำกัดครั้ง</p>
+        </div>
+        <div class="logic-panel practice-panel">
+          <fieldset class="practice-levels" aria-describedby="practiceLevelHelp">
+            <legend>เลือกระดับความยาก</legend>
+            <div class="practice-level-row" id="practiceLevels">
+              <button type="button" data-level="basic" aria-pressed="true"><span>01</span><strong>พื้นฐาน</strong><small>เติมคำตอบสุดท้าย</small></button>
+              <button type="button" data-level="intermediate" aria-pressed="false"><span>02</span><strong>ประยุกต์</strong><small>เติมคอลัมน์ย่อย</small></button>
+              <button type="button" data-level="advanced" aria-pressed="false"><span>03</span><strong>ท้าทาย</strong><small>เติมทุกช่อง</small></button>
+            </div>
+          </fieldset>
+          <p class="logic-hint" id="practiceLevelHelp">ระดับพื้นฐานมีตัวแปรกำหนดให้แล้ว ส่วนระดับท้าทายจะให้สร้างลำดับ T/F เอง</p>
+          <div class="practice-exercise-top">
+            <div>
+              <span class="logic-small-label" id="practiceProgress">โจทย์ 1 จาก 3</span>
+              <h3 id="practiceTitle">กำลังเตรียมแบบฝึก…</h3>
+              <p class="practice-formula" id="practiceFormula"></p>
+            </div>
+            <label class="practice-picker" for="practiceQuestion">เลือกข้อ
+              <select id="practiceQuestion" aria-label="เลือกข้อในระดับนี้"></select>
+            </label>
+          </div>
+          <p class="practice-instruction" id="practiceInstruction">แตะช่องว่างเพื่อเลือก T หรือ F แตะซ้ำเพื่อเปลี่ยนค่า</p>
+          <div class="logic-scroll practice-table-wrap" tabindex="0" aria-label="ตารางแบบฝึก เลื่อนแนวนอนได้">
+            <table class="logic-table practice-table" id="practiceTable">
+              <caption class="visually-hidden">เติมค่าความจริงแต่ละช่อง</caption>
+            </table>
+          </div>
+          <div class="practice-actions">
+            <button type="button" class="button primary" id="practiceCheck">ตรวจคำตอบ</button>
+            <button type="button" class="button secondary" id="practiceHint">ดูแนวคิด</button>
+            <button type="button" class="button secondary" id="practiceReset">ล้างคำตอบ</button>
+            <button type="button" class="button secondary" id="practiceNext">ข้อถัดไป →</button>
+          </div>
+          <p id="practiceHintText" class="practice-hint" hidden></p>
+          <div class="practice-feedback" id="practiceFeedback" role="status" aria-live="polite" hidden tabindex="-1">
+            <strong id="practiceFeedbackTitle"></strong>
+            <p id="practiceFeedbackDetail"></p>
+          </div>
+          <p class="logic-note">นี่เป็นแบบฝึกเพื่อเรียนรู้ ไม่ใช่ข้อสอบเก็บคะแนน ผลการฝึกไม่ได้ส่งไปยัง Supabase หรือเก็บเป็นประวัตินักเรียน</p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div class="footer-brand"><img src="../assets/mark.svg" width="34" height="34" alt=""><div><strong>Ying Teaching Hub</strong><small>Truth Table Lab · ระยะ A–B</small></div></div>
+      <div class="footer-brand"><img src="../assets/mark.svg" width="34" height="34" alt=""><div><strong>Ying Teaching Hub</strong><small>Truth Table Lab · ระยะ A–C</small></div></div>
       <p>สื่อต้นแบบสำหรับทดลอง · รอการตรวจรับเนื้อหา</p>
       <a href="../math.html#m4-h2">กลับไปผังบทเรียน ม.4</a>
     </div>
