@@ -17,7 +17,7 @@ jobs:
         run: |
           node --check app.js
           node --check math.js
-          node --check logic/truth-table.js
+          node --check --input-type=module < logic/truth-table.js
           node --check logic/logic-engine.mjs
       - name: Validate only approved public content and static shell
         run: node tests/validate-public-catalog.mjs
