@@ -14,6 +14,12 @@ jobs:
         with:
           node-version: '20'
       - name: Check browser JavaScript syntax
-        run: node --check app.js
+        run: |
+          node --check app.js
+          node --check math.js
+          node --check --input-type=module < logic/truth-table.js
+          node --check logic/logic-engine.mjs
       - name: Validate only approved public content and static shell
         run: node tests/validate-public-catalog.mjs
+      - name: Verify Truth Table Lab mathematical engine and page safety
+        run: node tests/truth-table.test.mjs

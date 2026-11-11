@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f7f7fc">
+  <meta name="description" content="Truth Table Lab ห้องทดลองตารางค่าความจริงสำหรับคณิตศาสตร์เพิ่มเติม ม.4 ฝึกตัวเชื่อมและสร้างตารางทีละขั้น">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <title>Truth Table Lab | คณิตศาสตร์กับครูหญิง</title>
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="./truth-table.css">
+  <script type="module" src="./truth-table.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">ข้ามไปยังบทเรียน</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../math.html#m4-h2" aria-label="กลับไปผังเนื้อหาตรรกศาสตร์ ม.4">
+        <img src="../assets/mark.svg" width="42" height="42" alt="">
+        <span class="brand-text"><strong>Ying Teaching Hub</strong><small>Truth Table Lab · ครูหญิง</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="เมนูเว็บไซต์">
+        <a href="../math.html#m4-h2">ผังวิชา ม.4</a>
+        <a href="#learn">เรียนรู้ตัวเชื่อม</a>
+        <a href="#builder">สร้างตาราง</a>
+      </nav>
+      <button type="button" id="themeToggle" class="theme-button" aria-label="เปลี่ยนโหมดสี" aria-pressed="false">☾</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="logic-hero">
+      <div class="container logic-hero-inner">
+        <div>
+          <span class="logic-eyebrow">คณิตศาสตร์เพิ่มเติม · ม.4 · ชั่วโมงที่ 2–3</span>
+          <h1>Truth Table <span>Lab.</span></h1>
+          <p class="logic-hero-subtitle">ห้องทดลอง <strong>ตารางค่าความจริง</strong></p>
+          <p>เรียนรู้จากการลองเปลี่ยนค่าความจริง แล้วค่อย ๆ สร้างตารางของตัวเอง ไม่ต้องท่องจำอย่างเดียว</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#learn">เริ่มเรียนรู้</a>
+            <a class="button secondary" href="#builder">ไปเครื่องสร้างตาราง</a>
+          </div>
+          <p class="logic-phase">สื่อทดลองระยะ A–B · อยู่ระหว่างตรวจรับโดยครู · ไม่เก็บคะแนนหรือข้อมูลผู้เรียน</p>
+        </div>
+        <div class="logic-hero-art" aria-hidden="true">
+          <span class="logic-art-mark">p → q</span>
+          <div class="logic-art-grid">
+            <span>p</span><span>q</span><span>p → q</span>
+            <span>T</span><span>T</span><span>T</span>
+            <span>T</span><span>F</span><span>F</span>
+            <span>F</span><span>T</span><span>T</span>
+            <span>F</span><span>F</span><span>T</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container logic-section" id="learn" aria-labelledby="learnHeading">
+      <div class="logic-section-intro">
+        <p class="section-kicker">01 · LEARN</p>
+        <h2 id="learnHeading">รู้จักตัวเชื่อมก่อนสร้างตาราง</h2>
+        <p>ประพจน์มีค่าความจริงเป็นจริง (T) หรือเท็จ (F) ลองเลือกค่า p และ q แล้วสังเกตผลที่เกิดขึ้น</p>
+      </div>
+      <div class="logic-panel demo-panel">
+        <div class="logic-panel-heading"><h3>ทดลองเปลี่ยนค่าความจริง</h3><span class="logic-tag">กดเปลี่ยนได้</span></div>
+        <div class="logic-controls">
+          <label for="demoOperator">ตัวเชื่อม
+            <select id="demoOperator">
+              <option value="∧">∧ และ</option>
+              <option value="∨">∨ หรือ</option>
+              <option value="→" selected>→ ถ้า...แล้ว...</option>
+              <option value="↔">↔ ก็ต่อเมื่อ</option>
+              <option value="~">~ นิเสธของ p</option>
+            </select>
+          </label>
+          <label for="demoP">ค่าของ p
+            <select id="demoP"><option value="T" selected>T · จริง</option><option value="F">F · เท็จ</option></select>
+          </label>
+          <label for="demoQ" id="demoQLabel">ค่าของ q
+            <select id="demoQ"><option value="T">T · จริง</option><option value="F" selected>F · เท็จ</option></select>
+          </label>
+        </div>
+        <div class="logic-demo-outcome">
+          <div><span class="logic-small-label">ประพจน์ที่กำลังทดลอง</span><strong id="demoExpression">p → q</strong></div>
+          <div><span class="logic-small-label">ค่าความจริง</span><strong id="demoAnswer" class="logic-value">F</strong></div>
+        </div>
+        <p id="demoExplanation" class="logic-explanation" aria-live="polite">เท็จเฉพาะเมื่อ p จริง และ q เท็จ</p>
+        <h4>ตารางค่าความจริงของตัวเชื่อมนี้</h4>
+        <div class="logic-scroll" tabindex="0" aria-label="ตารางค่าความจริงตัวเชื่อม เลื่อนแนวนอนได้">
+          <table class="logic-table" id="demoTable"><caption class="visually-hidden">ผลทุกกรณีของตัวเชื่อมที่เลือก</caption></table>
+        </div>
+        <p class="logic-note">หมายเหตุ: “หรือ” ในตรรกศาสตร์รวมกรณีที่ p และ q เป็นจริงทั้งคู่ด้วย</p>
+      </div>
+    </section>
+
+    <section class="logic-muted-section">
+      <div class="container logic-section" aria-labelledby="methodHeading">
+        <div class="logic-section-intro">
+          <p class="section-kicker">02 · METHOD</p>
+          <h2 id="methodHeading">วิธีสร้างตารางใน 4 ขั้นตอน</h2>
+        </div>
+        <ol class="logic-steps">
+          <li><span>1</span><div><strong>หาตัวแปรที่ไม่ซ้ำกัน</strong><p>เช่น p และ q มี 2 ตัวแปร จึงต้องมี 2² = 4 แถว</p></div></li>
+          <li><span>2</span><div><strong>เรียงค่าความจริงให้ครบ</strong><p>ใช้ T ก่อน F: TT, TF, FT, FF (3 ตัวแปรมี 8 แถว)</p></div></li>
+          <li><span>3</span><div><strong>หาค่าในวงเล็บก่อน</strong><p>สร้างคอลัมน์ย่อย เช่น p ∧ q ก่อนนำไปหา (p ∧ q) → r</p></div></li>
+          <li><span>4</span><div><strong>ตรวจคอลัมน์สุดท้าย</strong><p>ดูว่าจริงทุกแถว เท็จทุกแถว หรือมีทั้งจริงและเท็จ</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="container logic-section" id="builder" aria-labelledby="builderHeading">
+      <div class="logic-section-intro">
+        <p class="section-kicker">03 · BUILD</p>
+        <h2 id="builderHeading">เครื่องสร้างตารางค่าความจริง</h2>
+        <p>พิมพ์ประพจน์หรือกดปุ่มสัญลักษณ์ แล้วเลือก “สร้างตาราง” ระบบจะแสดงค่าทุกแถวและคอลัมน์ย่อยให้ดู</p>
+      </div>
+      <div class="logic-panel">
+        <div class="logic-examples">
+          <strong>ลองตัวอย่าง</strong>
+          <div class="logic-chip-row">
+            <button type="button" data-example="p → q">p → q</button>
+            <button type="button" data-example="~(p ∨ q)">~(p ∨ q)</button>
+            <button type="button" data-example="(p ∧ q) → r">(p ∧ q) → r</button>
+            <button type="button" data-example="(p → q) ↔ (~q → ~p)">ตรวจสมมูล</button>
+          </div>
+        </div>
+        <form id="builderForm" novalidate>
+          <label class="logic-input-label" for="expressionInput">ประพจน์ที่ต้องการสร้างตาราง</label>
+          <input id="expressionInput" name="expression" type="text" value="(p ∧ q) → r" maxlength="120" spellcheck="false" autocomplete="off" autocapitalize="off" aria-describedby="expressionHelp expressionError">
+          <p id="expressionHelp" class="logic-hint">ใช้ p, q, r และ ~ ∧ ∨ → ↔ ใส่วงเล็บเพื่อกำหนดลำดับให้ชัดเจน (สูงสุด 3 ตัวแปร)</p>
+          <div class="logic-keypad" role="group" aria-label="แป้นพิมพ์สัญลักษณ์ตรรกศาสตร์">
+            <button type="button" data-insert="p">p</button>
+            <button type="button" data-insert="q">q</button>
+            <button type="button" data-insert="r">r</button>
+            <button type="button" data-insert="~">~</button>
+            <button type="button" data-insert="∧">∧</button>
+            <button type="button" data-insert="∨">∨</button>
+            <button type="button" data-insert="→">→</button>
+            <button type="button" data-insert="↔">↔</button>
+            <button type="button" data-insert="(">(</button>
+            <button type="button" data-insert=")">)</button>
+            <button type="button" id="deleteSymbol" aria-label="ลบสัญลักษณ์ก่อนตำแหน่งเคอร์เซอร์">⌫</button>
+          </div>
+          <p id="expressionError" class="logic-error" role="alert" hidden></p>
+          <div class="logic-actions">
+            <button class="button primary" type="submit">สร้างตารางค่าความจริง</button>
+            <button class="button secondary" type="button" id="resetExpression">เริ่มใหม่</button>
+          </div>
+        </form>
+      </div>
+      <section class="logic-panel logic-result" id="results" aria-labelledby="resultHeading" tabindex="-1">
+        <div class="logic-panel-heading">
+          <div><span class="logic-small-label">ผลการสร้างตาราง</span><h3 id="resultHeading">ตารางค่าความจริง</h3></div>
+          <span class="logic-tag" id="rowCount">8 แถว</span>
+        </div>
+        <p class="logic-result-formula" id="resultFormula">(p ∧ q) → r</p>
+        <div class="logic-scroll" tabindex="0" aria-label="ตารางค่าความจริงที่สร้าง เลื่อนแนวนอนได้">
+          <table id="resultTable" class="logic-table"><caption class="visually-hidden">ตารางค่าความจริงและประพจน์ย่อย</caption></table>
+        </div>
+        <div class="logic-result-bottom">
+          <div><strong id="resultType">การจำแนกประพจน์</strong><p id="resultSummary"></p></div>
+          <div><strong>คำนวณคอลัมน์ไหนก่อน?</strong><ol id="resultStages" class="logic-stage-list"></ol></div>
+        </div>
+        <p class="logic-note">ระบบคำนวณบนอุปกรณ์ของคุณ ไม่ส่งโจทย์หรือผลไปยังฐานข้อมูล และยังไม่ใช่ระบบตรวจคะแนน</p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand"><img src="../assets/mark.svg" width="34" height="34" alt=""><div><strong>Ying Teaching Hub</strong><small>Truth Table Lab · ระยะ A–B</small></div></div>
+      <p>สื่อต้นแบบสำหรับทดลอง · รอการตรวจรับเนื้อหา</p>
+      <a href="../math.html#m4-h2">กลับไปผังบทเรียน ม.4</a>
+    </div>
+  </footer>
+</body>
+</html>
