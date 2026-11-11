@@ -1,0 +1,91 @@
+/* Truth Table Lab — inherits Ying Teaching Hub's color tokens and mobile typography. */
+.logic-hero{background:radial-gradient(circle at 82% 18%,#ece7ff 0,transparent 41%),linear-gradient(135deg,#fff,#faf7ff 60%,#fff1f5);border-bottom:1px solid var(--stroke)}
+.logic-hero-inner{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(255px,.8fr);gap:56px;align-items:center;padding-block:75px}
+.logic-eyebrow,.logic-tag{display:inline-flex;align-items:center;border-radius:99px;padding:7px 12px;background:var(--lavender);color:var(--accent);font-size:.75rem;font-weight:800}
+.logic-hero h1{font-size:clamp(3rem,6.2vw,5.3rem);font-weight:900;letter-spacing:-.055em;line-height:1.1;margin:20px 0 8px}
+.logic-hero h1 span{color:var(--accent)}
+.logic-hero-subtitle{font-size:clamp(1.3rem,2.8vw,1.85rem);font-weight:650;color:var(--ink);margin-bottom:14px}
+.logic-hero p:not(.logic-hero-subtitle){max-width:590px;line-height:1.85}
+.logic-phase{font-size:.77rem;margin:5px 0 0;color:var(--muted)}
+.logic-hero-art{justify-self:center;width:min(100%,330px);border-radius:29px;background:var(--card);border:1px solid var(--stroke);box-shadow:0 25px 65px #7161bb24;padding:25px;transform:rotate(3deg)}
+.logic-art-mark{font-size:1.7rem;color:var(--accent);font-weight:850}
+.logic-art-grid{margin-top:16px;display:grid;grid-template-columns:1fr 1fr 1.6fr;gap:5px;text-align:center}
+.logic-art-grid span{border-radius:7px;padding:7px 3px;font-weight:800;background:var(--bg);font-size:.86rem}
+.logic-art-grid span:nth-child(-n+3){background:var(--lavender);color:var(--accent)}
+.logic-art-grid span:nth-child(9){background:#fce7eb;color:#a33b4f}
+.logic-section{padding-block:70px}
+.logic-section-intro{max-width:740px;margin-bottom:25px}
+.logic-section-intro h2{font-size:clamp(1.75rem,3.8vw,2.65rem);margin:0 0 9px}
+.logic-section-intro p:last-child{margin:0;font-size:.94rem;line-height:1.8}
+.logic-panel{padding:clamp(19px,3.5vw,35px);border-radius:24px;background:var(--card);border:1px solid var(--stroke);box-shadow:var(--shadow)}
+.logic-panel-heading{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:19px}
+.logic-panel-heading h3{font-size:1.22rem;margin:0}
+.logic-controls{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:13px}
+.logic-controls label{display:flex;flex-direction:column;gap:7px;font-size:.82rem;font-weight:750}
+.logic-controls select,#expressionInput{width:100%;background:var(--bg);border:1px solid var(--stroke);border-radius:12px;color:var(--ink);min-height:48px;padding:9px 13px}
+.logic-controls label.is-disabled{opacity:.48}
+.logic-demo-outcome{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;background:var(--lavender);padding:22px;border-radius:17px;margin:20px 0 12px}
+.logic-demo-outcome>div{display:grid;gap:5px}
+.logic-small-label{font-size:.72rem;color:var(--muted);font-weight:700}
+#demoExpression{font-size:clamp(1.3rem,3vw,2rem);font-weight:850}
+.logic-value{min-width:60px;display:grid;place-items:center;background:var(--card);border:1px solid var(--stroke);border-radius:16px;font-size:2rem;color:var(--green)}
+.logic-value.is-false{color:#bd586b}
+.logic-explanation{font-size:.86rem;color:var(--ink);line-height:1.7;padding:9px 2px;margin:0 0 23px}
+.logic-panel h4{font-size:.92rem;margin:0 0 12px}
+.logic-scroll{overflow-x:auto;max-width:100%;border-radius:14px;border:1px solid var(--stroke);background:var(--card)}
+.logic-table{border-collapse:collapse;text-align:center;width:100%;min-width:320px;font-variant-numeric:tabular-nums}
+.logic-table th,.logic-table td{padding:12px 14px;border-bottom:1px solid var(--stroke);white-space:nowrap;font-size:.92rem}
+.logic-table th{background:var(--lavender);font-weight:800;color:var(--ink)}
+.logic-table th.is-final{background:#e5e0ff;color:#4035a1}
+.logic-table td{font-weight:750}
+.logic-table td.is-final{background:color-mix(in srgb,var(--lavender) 55%,var(--card));font-weight:900}
+.logic-table tbody tr:last-child td{border-bottom:0}
+.logic-table tbody tr.is-selected td{outline:2px solid var(--accent);outline-offset:-2px}
+.logic-table .is-true{color:var(--green)}
+.logic-table .is-false{color:#b34d66}
+.logic-note,.logic-hint{color:var(--muted);font-size:.77rem;line-height:1.7;margin:13px 0 0}
+.logic-muted-section{background:var(--card);border-block:1px solid var(--stroke)}
+.logic-steps{padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin:0}
+.logic-steps li{display:flex;align-items:flex-start;gap:13px;background:var(--bg);border:1px solid var(--stroke);border-radius:17px;padding:19px}
+.logic-steps li>span{flex:0 0 36px;height:36px;display:grid;place-items:center;color:var(--accent);background:var(--lavender);border-radius:11px;font-weight:900}
+.logic-steps strong{font-size:.93rem}
+.logic-steps p{font-size:.8rem;margin:5px 0 0;line-height:1.7}
+.logic-examples{margin-bottom:24px}
+.logic-examples>strong,.logic-input-label{display:block;font-size:.86rem;margin:0 0 10px}
+.logic-chip-row{display:flex;flex-wrap:wrap;gap:9px}
+.logic-chip-row button{background:var(--lavender);border:1px solid var(--stroke);color:var(--accent);border-radius:99px;padding:8px 14px;font-size:.84rem;font-weight:750}
+.logic-chip-row button:hover,.logic-keypad button:hover{border-color:var(--accent)}
+#expressionInput{font-size:1.2rem;padding:13px 17px;min-height:56px;font-weight:700}
+.logic-keypad{display:flex;gap:8px;flex-wrap:wrap;margin-top:17px}
+.logic-keypad button{flex:0 0 48px;height:46px;background:var(--bg);color:var(--ink);border:1px solid var(--stroke);border-radius:12px;font-weight:800;font-size:1.08rem}
+.logic-actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:22px}
+.logic-error{color:#a43a54;background:#fff0f2;border:1px solid #e7b7c0;border-radius:10px;padding:10px 13px;font-size:.86rem}
+.logic-error[hidden]{display:none}
+.logic-result{margin-top:20px;scroll-margin-top:100px}
+.logic-result-formula{font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:850;color:var(--ink);overflow-wrap:anywhere}
+.logic-result-bottom{display:grid;grid-template-columns:1fr 1.15fr;gap:25px;margin-top:24px}
+.logic-result-bottom>div{padding:18px;border:1px solid var(--stroke);border-radius:16px;background:var(--bg)}
+.logic-result-bottom strong{font-size:.9rem}
+.logic-result-bottom p{font-size:.84rem;margin:7px 0 0}
+.logic-stage-list{font-size:.85rem;color:var(--muted);margin:7px 0 0;padding-left:23px}
+.logic-stage-list li{padding:2px}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+[hidden]{display:none!important}
+[data-theme="dark"] .logic-hero{background:radial-gradient(circle at 82% 18%,#34305b,transparent 42%),linear-gradient(135deg,#1d2034,#2a263c 65%,#362a37)}
+[data-theme="dark"] .logic-table th.is-final{background:#443a73;color:#e7e2ff}
+[data-theme="dark"] .logic-art-grid span:nth-child(9){background:#512f44;color:#ffb7c3}
+[data-theme="dark"] .logic-error{background:#432636;border-color:#7e3f55;color:#ffc4d1}
+@media(max-width:760px){
+  .logic-hero-inner{grid-template-columns:1fr;gap:20px;padding-block:44px}
+  .logic-hero h1{font-size:clamp(2.8rem,11vw,4.5rem)}
+  .logic-hero-art{display:none}
+  .logic-section{padding-block:52px}
+  .logic-controls{grid-template-columns:1fr 1fr}
+  .logic-controls label:first-child{grid-column:1 / -1}
+  .logic-steps{grid-template-columns:1fr}
+  .logic-result-bottom{grid-template-columns:1fr}
+  .logic-actions .button{flex:1}
+  .logic-panel{border-radius:19px}
+  .logic-table th,.logic-table td{padding:11px 12px;font-size:.84rem}
+}
+@media(max-width:430px){.logic-keypad button{flex:1 0 15%;min-width:42px}.logic-actions{flex-direction:column}.logic-controls{grid-template-columns:1fr}.logic-controls label:first-child{grid-column:auto}.logic-demo-outcome{padding:18px}}
