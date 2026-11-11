@@ -82,7 +82,7 @@ export function formatNode(node, outer = true) {
   if (node.type === "var") return node.name;
   if (node.type === "not") {
     const child = formatNode(node.child, false);
-    return "~" + (node.child.type === "var" || node.child.type === "not" ? child : "(" + child + ")");
+    return "~" + child;
   }
   const content = formatNode(node.left, false) + " " + SYMBOLS[node.type] + " " + formatNode(node.right, false);
   return outer ? content : "(" + content + ")";
