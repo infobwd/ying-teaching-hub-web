@@ -114,9 +114,6 @@ function renderMaterials() {
     const link = make("a", "published-item", item.title + " · รุ่น " + item.version + " ↗");
     link.href = item.file_url;
     link.rel = "noopener noreferrer";
-    link.style.display = "block";
-    link.style.padding = "10px 0";
-    link.style.textDecoration = "underline";
     list.append(link);
   }
   root.append(list);
