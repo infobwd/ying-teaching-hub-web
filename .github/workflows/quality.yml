@@ -19,6 +19,9 @@ jobs:
           node --check math.js
           node --check classroom/classroom.js
           node --check classroom/world/world.js
+          node --check classroom/auth/auth-core.js
+          node --check classroom/auth/status-world.js
+          node --check classroom/login/login.js
           node --check --input-type=module < logic/truth-table.js
           node --check logic/logic-engine.mjs
           node --check --input-type=module < logic/practice.js
@@ -28,6 +31,7 @@ jobs:
           node tests/validate-public-catalog.mjs
           node tests/classroom.test.mjs
           node tests/classroom-world.test.mjs
+          node tests/classroom-auth.test.mjs
       - name: Verify Truth Table Lab mathematical engine and page safety
         run: |
           node tests/truth-table.test.mjs

@@ -56,7 +56,8 @@ const markings = [];
 const hotspots = [
   { id: "hotspotLesson", xyz: [-2.75, 1.5, 1.50] },
   { id: "hotspotGame", xyz: [4.30, 1.78, -0.35] },
-  { id: "hotspotScore", xyz: [4.15, 1.50, 3.1] }
+  { id: "hotspotScore", xyz: [4.15, 1.50, 3.1] },
+  { id: "hotspotTeacher", xyz: [2.86, 2.48, -3.10] }
 ];
 function clamp(value, lo, hi) { return Math.max(lo, Math.min(hi, value)); }
 function vector(x,y,z) { return [x,y,z]; }
@@ -255,6 +256,7 @@ function showNotice(title,message){
 document.querySelectorAll("[data-level]").forEach(btn=>btn.addEventListener("click",()=>updateLevel(btn.dataset.level)));
 document.getElementById("scoreButton").addEventListener("click",()=>showNotice("สมุดคะแนนกำลังเตรียม","เมื่อตรวจสิทธิ์ระบบบัญชีนักเรียนเรียบร้อยแล้ว นักเรียนจะดูได้เฉพาะคะแนนของตนเอง ขณะนี้ยังไม่มีข้อมูลคะแนนจริง"));
 document.getElementById("hotspotScore").addEventListener("click",()=>document.getElementById("scoreButton").click());
+document.getElementById("hotspotTeacher").addEventListener("click",()=>showNotice("ครูพี่หญิงยินดีต้อนรับ ♡","ยินดีต้อนรับสู่ห้องเรียนคณิตศาสตร์ ม.2 และ ม.4 นะคะ เลือกบทเรียนหรือมุมเกมเพื่อเริ่มเรียนได้เลยค่ะ"));
 document.getElementById("hotspotLesson").addEventListener("click",()=>{window.location.assign(dom.lesson.href);});
 document.getElementById("hotspotGame").addEventListener("click",()=>{
   if(content[state.level].game)window.location.assign(dom.game.href);

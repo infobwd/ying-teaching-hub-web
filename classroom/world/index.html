@@ -5,11 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#fff9f4">
   <meta name="description" content="ห้องเรียน 3D คุณครูพี่หญิง — สำรวจห้องเรียนคณิตศาสตร์ ม.2 และ ม.4 ผ่านฉากสามมิติโทนพาสเทล">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://zutekwbsqdhcnvcppvjx.supabase.co; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
   <title>ห้องเรียน 3D ครูพี่หญิง | Ying Teaching Hub</title>
   <link rel="icon" href="../../assets/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./world.css">
   <script src="./world.js" defer></script>
+  <script src="../auth/auth-core.js" defer></script>
+  <script src="../auth/status-world.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">ข้ามไปยังห้องเรียน</a>
@@ -19,7 +21,7 @@
         <span class="brand-icon" aria-hidden="true">✿</span>
         <span><strong>Ying Classroom</strong><small>ห้องเรียนของครูพี่หญิง</small></span>
       </a>
-      <span class="preview-badge">ทดลองชม · ไม่มีข้อมูลนักเรียน</span>
+      <div class="header-actions"><span class="preview-badge">โหมดทดลองชม</span><a id="teacherLoginLink" class="teacher-auth-link" href="../login/">เข้าสู่ระบบครู</a><span id="teacherAuthState" class="teacher-auth-state" aria-live="polite">ผู้เยี่ยมชม</span></div>
     </header>
     <main id="main">
       <div class="intro">
@@ -46,6 +48,7 @@
           <button id="hotspotLesson" type="button" class="hotspot" data-action="lesson" aria-label="แตะโต๊ะเรียนเพื่อเปิดบทเรียน">✎ <span>บทเรียน</span></button>
           <button id="hotspotGame" type="button" class="hotspot" data-action="game" aria-label="แตะมุมเกมเพื่อเล่นเกมคณิตศาสตร์">★ <span>มุมเกม</span></button>
           <button id="hotspotScore" type="button" class="hotspot locked" data-action="scores" aria-label="สมุดคะแนนส่วนตัว ยังไม่เปิดใช้งาน">♙ <span>คะแนน</span></button>
+          <button id="hotspotTeacher" type="button" class="hotspot teacher-hotspot" data-action="teacher" aria-label="แตะตัวละครครูพี่หญิงเพื่อทักทาย">♡ <span>ครูพี่หญิง</span></button>
           <span id="avatarTag" class="avatar-tag">ตัวละครตัวอย่าง ♡</span>
           <span class="canvas-caption">ตัวอย่างห้องเรียน · ไม่แสดงนักเรียนออนไลน์จริง</span>
         </div>
