@@ -1,7 +1,7 @@
 import {BANK,SERIES_ID,TOTAL_QUESTIONS,buildRound,calculate,validateStudent,areEquivalent} from './logic.mjs';
 
 const $ = id => document.getElementById(id);
-const KEY = 'ying-logic-quest-device-v1';
+const KEY = 'ying-logic-quest-device-v1'; // Keep initial browser identity across content revisions
 const fmt = iso => new Intl.DateTimeFormat('th-TH-u-ca-buddhist', {
   dateStyle:'medium',timeStyle:'short',timeZone:'Asia/Bangkok'
 }).format(new Date(iso));
@@ -25,8 +25,8 @@ function initPlayer(){
   if(store?.student){
     $('player-name').textContent=ident();
     $('player-meta').textContent=`เลขประจำตัว ${store.student.studentId} · ห้อง ${store.student.room} · เล่นแล้ว ${store.playCount || 0} ครั้ง`;
-    $('continue-btn').textContent=store.pending?'เล่นต่อจากครั้งที่ค้างไว้ →':'เริ่มภารกิจอีกครั้ง →';
-    $('last-result-btn').hidden=!(store.attempts?.length);
+    $('continue-btn').textContent=store.pending?.series===SERIES_ID?'เล่นต่อจากครั้งที่ค้างไว้ →':'เริ่มภารกิจอีกครั้ง →';
+    $('last-result-btn').hidden=!store.attempts?.some(a=>a.series===SERIES_ID);
   }
   if(!storageUsable){
     showNotice($('storage-error'),'เบราว์เซอร์นี้ไม่อนุญาตให้บันทึกข้อมูลบนเครื่อง จึงยังใช้ระบบจำเลขประจำตัวไม่ได้ กรุณาเปิดใน Safari/Chrome ปกติและอนุญาตพื้นที่เก็บข้อมูล');
@@ -36,18 +36,20 @@ function initPlayer(){
 function cleanRound(pending){
   if(!pending||pending.series!==SERIES_ID||!Array.isArray(pending.questions)||pending.questions.length!==TOTAL_QUESTIONS)return null;
   const list=[];const keys=new Set();
+  const sourceRights=[...new Set(BANK.map(q=>q.right))];
   for(const item of pending.questions){
     if(keys.has(item.id))return null;keys.add(item.id);
-    const origin=BANK.find(x=>x.id===item.id);if(!origin)return null;
-    const validRights=origin.fixed?[origin.right]:[origin.right,origin.wrong];
-    if(!validRights.includes(item.right))return null;
-    list.push({id:origin.id,left:origin.left,right:item.right,source:origin.source,
-      corrected:origin.corrected,law:origin.law,answer:areEquivalent(origin.left,item.right)});
+    const origin=BANK.find(x=>x.id===item.id);
+    if(!origin||item.left!==origin.left||!Array.isArray(item.options)||item.options.length!==4)return null;
+    const options=item.options;
+    if(new Set(options).size!==4||!options.includes(origin.right)||options.some(v=>!sourceRights.includes(v)))return null;
+    if(options.filter(v=>areEquivalent(origin.left,v)).length!==1)return null;
+    list.push({...origin,answer:origin.right,options:[...options]});
   }
-  if(!['e1','e2','e3','e4','e5'].every(id=>keys.has(id)))return null;
+  if(BANK.some(q=>!keys.has(q.id)))return null;
   const selected={};
-  for(const q of list){const a=pending.selected?.[q.id];if(a===true||a===false)selected[q.id]=a;}
-  return {series:SERIES_ID,questions:list,selected,index:Math.min(14,Math.max(0,Number(pending.index)||0)),startedAt:pending.startedAt||new Date().toISOString()};
+  for(const q of list){const a=pending.selected?.[q.id];if(q.options.includes(a))selected[q.id]=a;}
+  return {series:SERIES_ID,questions:list,selected,index:Math.min(TOTAL_QUESTIONS-1,Math.max(0,Number(pending.index)||0)),startedAt:pending.startedAt||new Date().toISOString()};
 }
 function startGame(){
   if(!store?.student||!storageUsable)return;
@@ -66,21 +68,22 @@ function renderQuestion(){
   $('progress-track').setAttribute('aria-valuenow',String(answered));
   $('task-type').textContent=q.source;
   $('left-formula').textContent=q.left;
-  $('right-formula').textContent=q.right;
-  for(const answer of [true,false])$('choice-'+answer).setAttribute('aria-pressed',String(round.selected[q.id]===answer));
+  const buttons=$('options-grid').querySelectorAll('button.option-choice');
+  buttons.forEach((button,i)=>{button.querySelector('.option-formula').textContent=q.options[i];button.setAttribute('aria-pressed',String(round.selected[q.id]===q.options[i]));});
   $('prev-btn').disabled=round.index===0;
-  $('next-btn').disabled=!(round.selected[q.id]===true||round.selected[q.id]===false);
+  $('next-btn').disabled=!q.options.includes(round.selected[q.id]);
   $('next-btn').textContent=round.index===TOTAL_QUESTIONS-1?'ส่งคำตอบและดูคะแนน ✓':'ข้อต่อไป →';
   $('saved-hint').textContent=`ตอบแล้ว ${answered} / ${TOTAL_QUESTIONS}`;
 }
 function choose(answer){
+  if(!round?.questions[round.index]?.options.includes(answer))return;
   round.selected[round.questions[round.index].id]=answer;
   store.pending=round;
   if(!persist())return;
   renderQuestion();
 }
 function navigate(delta){
-  if(delta>0 && round.selected[round.questions[round.index].id]!==true && round.selected[round.questions[round.index].id]!==false)return;
+  if(delta>0 && !round.questions[round.index].options.includes(round.selected[round.questions[round.index].id]))return;
   if(delta>0 && round.index===TOTAL_QUESTIONS-1){submitGame();return;}
   round.index=Math.min(TOTAL_QUESTIONS-1,Math.max(0,round.index+delta));
   store.pending=round;persist();renderQuestion();
@@ -93,7 +96,7 @@ function submitGame(){
   const timestamp=new Date().toISOString();
   const record={series:SERIES_ID,attempt:(store.playCount||0)+1,code:resultCode(),finishedAt:timestamp,
     seconds:Math.max(0,Math.round((Date.now()-Date.parse(round.startedAt))/1000)),...values,
-    details:round.questions.map(q=>({id:q.id,right:q.right,selected:round.selected[q.id]}))};
+    details:round.questions.map(q=>({id:q.id,selected:round.selected[q.id]}))};
   store.playCount=record.attempt;
   store.attempts=[...(store.attempts||[]),record].slice(-40);
   store.pending=null;
@@ -101,7 +104,8 @@ function submitGame(){
   activeRecord=record;reviewRound=round.questions;reviewAnswers=round.selected;round=null;
   showResult();
 }
-function best(){return Math.max(0,...(store.attempts||[]).map(a=>a.correct||0));}
+function currentAttempts(){return (store.attempts||[]).filter(a=>a.series===SERIES_ID);}
+function best(){return Math.max(0,...currentAttempts().map(a=>a.correct||0));}
 function addRow(parent,className,left,right){
   const row=document.createElement('div');row.className=className;
   const a=document.createElement('span');a.textContent=left;
@@ -116,8 +120,8 @@ function buildReview(){
     const header=document.createElement('b');header.textContent=`ข้อ ${i+1} · ${reviewAnswers[q.id]===q.answer?'ตอบถูก':'ตอบผิด'}`;
     header.className=reviewAnswers[q.id]===q.answer?'correct':'incorrect';
     const formula=document.createElement('div');formula.className='formula-small';formula.textContent=`${q.left} ≡ ${q.right}`;
-    const answer=document.createElement('p');answer.textContent=`คำตอบ: ${q.answer?'ถูก':'ผิด'} · ${q.law}`;
-    const correction=document.createElement('p');correction.textContent=`รูปที่สมมูลถูกต้อง: ${q.left} ≡ ${q.corrected}`;
+    const answer=document.createElement('p');answer.textContent=`คำตอบที่เลือก: ${reviewAnswers[q.id]||'ไม่ได้เลือก'} · ${q.law}`;
+    const correction=document.createElement('p');correction.textContent=`คำตอบที่ถูกต้อง: ${q.right}`;
     article.append(header,formula,answer,correction);root.append(article);
   });
 }
@@ -137,7 +141,7 @@ function showResult(){
   $('receipt-device').textContent=shortId();
   buildReview();
   const root=$('history-list');root.replaceChildren();
-  for(const item of [...(store.attempts||[])].reverse().slice(0,8))addRow(root,'history-row',`ครั้งที่ ${item.attempt} · ${fmt(item.finishedAt)}`,`${item.correct} / ${item.total} (${item.percent}%)`);
+  for(const item of [...currentAttempts()].reverse().slice(0,8))addRow(root,'history-row',`ครั้งที่ ${item.attempt} · ${fmt(item.finishedAt)}`,`${item.correct} / ${item.total} (${item.percent}%)`);
   show('result');
 }
 function shareText(){const a=activeRecord;return `LOGIC QUEST — ผลทดสอบประพจน์สมมูล ม.4\nชื่อ: ${ident()}\nเลขประจำตัว: ${store.student.studentId}\nห้อง: ${store.student.room}\nคะแนน: ${a.correct}/${a.total} (${a.percent}%)\nครั้งที่: ${a.attempt}\nวันที่: ${fmt(a.finishedAt)}\nรหัสผล: ${a.code}\nรหัสเครื่องย่อ: ${shortId()}\n(ผลที่ส่งโดยผู้เล่นจากเครื่องนี้ ยังไม่ได้รับรองโดยระบบครู)`;}
@@ -195,11 +199,10 @@ $('register-form').addEventListener('submit',event=>{
 });
 $('continue-btn').addEventListener('click',startGame);
 $('last-result-btn').addEventListener('click',()=>{
-  const last=store?.attempts?.at(-1);if(!last)return;
+  const last=currentAttempts().at(-1);if(!last)return;
   activeRecord=last;reviewRound=null;reviewAnswers=null;showResult();
 });
-$('choice-true').addEventListener('click',()=>choose(true));
-$('choice-false').addEventListener('click',()=>choose(false));
+$('options-grid').querySelectorAll('button.option-choice').forEach((button,i)=>button.addEventListener('click',()=>{if(round)choose(round.questions[round.index].options[i]);}));
 $('prev-btn').addEventListener('click',()=>navigate(-1));
 $('next-btn').addEventListener('click',()=>navigate(1));
 $('replay-btn').addEventListener('click',()=>{round=null;store.pending=null;persist();startGame();});
