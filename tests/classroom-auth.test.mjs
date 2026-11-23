@@ -1,0 +1,37 @@
+import assert from "node:assert/strict";
+import {readFileSync} from "node:fs";
+const read=p=>readFileSync(new URL("../"+p,import.meta.url),"utf8");
+const login=read("classroom/login/index.html");
+const loginJs=read("classroom/login/login.js");
+const loginCss=read("classroom/login/login.css");
+const auth=read("classroom/auth/auth-core.js");
+const status=read("classroom/auth/status-world.js");
+const world=read("classroom/world/index.html");
+const docs=read("docs/auth/README.md");
+const expectedOrigin="https://zutekwbsqdhcnvcppvjx.supabase.co";
+assert.ok(login.includes('<html lang="th">'));
+assert.ok(login.includes("form-action 'none'"));
+assert.ok(login.includes("connect-src 'self' "+expectedOrigin));
+assert.ok(world.includes("connect-src 'self' "+expectedOrigin));
+for(const tag of ["loginForm","email","password","dashboard","logout","changeForm","feedback"]) assert.ok(login.includes('id="'+tag+'"'),"Missing login UI "+tag);
+assert.ok(world.includes("../auth/auth-core.js")&&world.includes("../auth/status-world.js"));
+assert.ok(login.includes("../auth/auth-core.js")&&login.includes("./login.js"));
+assert.ok(auth.includes("/auth/v1/token?grant_type=password"));
+assert.ok(auth.includes("/auth/v1/token?grant_type=refresh_token"));
+assert.ok(auth.includes("/auth/v1/user"));
+assert.ok(auth.includes("/auth/v1/logout"));
+assert.ok(auth.includes("/rest/v1/yth_user_roles?select=role&user_id=eq."));
+assert.ok(auth.includes('rows[0].role!=="teacher"'),"Role must be enforced");
+assert.ok(auth.includes("sessionStorage")&& !auth.includes("localStorage"),"Do not persist across browser sessions");
+assert.ok(auth.includes('await signOut()'),"Non-teacher must be logged out");
+assert.ok(status.includes("currentTeacher()")&&status.includes("เฉพาะเครื่องนี้"));
+assert.ok(docs.includes("yth_user_roles"),"Must document existing role table");
+assert.ok(docs.includes("zero Auth users"),"Must disclose untested real-user login");
+assert.ok(loginCss.includes('"Sarabun"'),"Use Sarabun for login typography");
+for(const code of [login,loginJs,auth,status]) {
+  assert.doesNotMatch(code,/service_role|sb_secret_|secret_key/i,"No secret keys in client");
+  assert.doesNotMatch(code,/(\bonclick\s*=|<script(?![^>]+src=))/i,"No inline code");
+}
+assert.doesNotMatch(auth,/auth\.signUp|\/auth\/v1\/signup|raw_user_meta_data|user_metadata/i,"No open sign-up or metadata authorization");
+assert.doesNotMatch(login,/studentId|student_id|student-no|เลขประจำตัว.*<input/i,"No student ID form until server mapping exists");
+console.log("PASS: Auth UI, RLS-backed teacher-only permission, session isolation and no public roster");
