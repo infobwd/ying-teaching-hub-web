@@ -23,6 +23,7 @@ jobs:
           node --check classroom/auth/status-world.js
           node --check classroom/login/login.js
           node --check classroom/student/student.js
+          node --check classroom/students/manage.js
           node --check --input-type=module < logic/truth-table.js
           node --check logic/logic-engine.mjs
           node --check --input-type=module < logic/practice.js
