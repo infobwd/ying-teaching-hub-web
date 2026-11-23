@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#fffaf5">
+<meta name="description" content="ตั้งรหัสผ่านครูพี่หญิงจากคำเชิญ Supabase Auth">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://zutekwbsqdhcnvcppvjx.supabase.co; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<title>ตั้งรหัสผ่านครู | Ying Classroom</title>
+<link rel="stylesheet" href="../login/login.css">
+<script src="./setup.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">ข้ามไปยังเนื้อหา</a>
+<header class="top"><a class="brand" href="../world/"><span class="brand-mark" aria-hidden="true">✿</span><span><strong>Ying Classroom</strong><small>บัญชีสำหรับคุณครู</small></span></a><a class="back" href="../login/">เข้าสู่ระบบครู</a></header>
+<main id="main" class="wrap">
+ <section class="welcome"><p class="eyebrow">SECURE ACCOUNT SETUP</p><h1>ตั้งรหัสผ่านบัญชีครู</h1><p>เปิดหน้านี้ผ่านลิงก์เชิญที่ส่งถึงอีเมลของครูโดยตรง</p></section>
+ <section class="auth-card">
+  <div class="avatar" aria-hidden="true">✿</div>
+  <h2>ยืนยันบัญชีและตั้งรหัสผ่าน</h2>
+  <p class="hint" id="accountHint">กำลังตรวจสอบลิงก์เชิญ...</p>
+  <form id="setupForm" hidden autocomplete="off">
+   <label for="newPassword">รหัสผ่านใหม่ (อย่างน้อย 12 ตัวอักษร)</label>
+   <input id="newPassword" type="password" autocomplete="new-password" minlength="12" maxlength="72" required>
+   <label for="confirmPassword">ยืนยันรหัสผ่านใหม่</label>
+   <input id="confirmPassword" type="password" autocomplete="new-password" minlength="12" maxlength="72" required>
+   <button type="submit" id="savePassword" class="primary">บันทึกรหัสผ่าน</button>
+  </form>
+  <p id="setupMessage" class="feedback" role="status" aria-live="polite">ลิงก์เชิญใช้ได้ครั้งเดียวและมีอายุจำกัด</p>
+  <a class="back" href="../login/">กลับหน้าเข้าสู่ระบบครู</a>
+ </section>
+</main>
+<footer>Ying Teaching Hub · เก็บรหัสผ่านในระบบ Supabase Auth เท่านั้น</footer>
+</body></html>
