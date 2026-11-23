@@ -122,6 +122,8 @@
   }
   window.YingTeacherAuth=Object.freeze({
     currentTeacher,signInTeacher,signOut,changePassword,
+    async teacherAccessToken(){const teacher=await currentTeacher();if(!teacher)return null;
+      const session=await refreshedSession();return session?.access_token||null;},
     onSessionChange(callback){if(typeof callback!=="function")return()=>{};listeners.add(callback);return()=>listeners.delete(callback);}
   });
 })();
