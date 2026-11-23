@@ -41,7 +41,7 @@
   event.preventDefault();if(!authorized||save.disabled)return;
   const password=document.getElementById("newPassword").value;
   const confirm=document.getElementById("confirmPassword").value;
-  if(password.length<12||password.length>72)return fail("รหัสผ่านต้องมี 12–72 ตัวอักษร กรุณาเริ่มเปิดลิงก์เชิญใหม่");
+  if(password.length<12||password.length>72){note("รหัสผ่านต้องมี 12–72 ตัวอักษร");return;}
   if(password!==confirm){note("รหัสผ่านสองช่องไม่ตรงกัน");return;}
   save.disabled=true;note("กำลังตั้งรหัสผ่าน...");
   try{
