@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fff9f4">
+  <meta name="description" content="ห้องเรียน 3D คุณครูพี่หญิง — สำรวจห้องเรียนคณิตศาสตร์ ม.2 และ ม.4 ผ่านฉากสามมิติโทนพาสเทล">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <title>ห้องเรียน 3D ครูพี่หญิง | Ying Teaching Hub</title>
+  <link rel="icon" href="../../assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./world.css">
+  <script src="./world.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">ข้ามไปยังห้องเรียน</a>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="../" aria-label="กลับสู่ห้องเรียนหลัก">
+        <span class="brand-icon" aria-hidden="true">✿</span>
+        <span><strong>Ying Classroom</strong><small>ห้องเรียนของครูพี่หญิง</small></span>
+      </a>
+      <span class="preview-badge">ทดลองชม · ไม่มีข้อมูลนักเรียน</span>
+    </header>
+    <main id="main">
+      <div class="intro">
+        <div>
+          <p class="overline">WELCOME TO OUR LITTLE CLASSROOM ✿</p>
+          <h1>วันนี้มาเรียนคณิตด้วยกันนะ <span aria-hidden="true">♡</span></h1>
+          <p class="sub">ห้องเรียนสามมิติแสนอบอุ่น ลองหมุนดูรอบห้องและแตะสิ่งของเพื่อสำรวจได้เลย</p>
+        </div>
+        <div class="mini-star" aria-hidden="true">✦</div>
+      </div>
+      <section class="room-card" aria-labelledby="room-title">
+        <div class="room-toolbar">
+          <div class="title-block"><span class="room-icon" aria-hidden="true">⌂</span><div><h2 id="room-title">ห้องเรียนคณิตศาสตร์</h2><small id="room-subtitle">ม.4 · ตรรกศาสตร์เพิ่มเติม</small></div></div>
+          <div class="room-levels" role="group" aria-label="เลือกระดับชั้น">
+            <button type="button" data-level="m4" class="active" aria-pressed="true">ม.4</button>
+            <button type="button" data-level="m2" aria-pressed="false">ม.2</button>
+          </div>
+        </div>
+        <div id="viewport" class="viewport" aria-label="ฉากห้องเรียนสามมิติโต้ตอบ">
+          <canvas id="roomCanvas" role="img" aria-label="ห้องเรียนสามมิติ มีโต๊ะเรียน กระดาน ครู และตัวละครนักเรียน"></canvas>
+          <div class="sky-decor sky-one" aria-hidden="true">✦</div>
+          <div class="sky-decor sky-two" aria-hidden="true">✧</div>
+          <span id="boardTag" class="board-tag">Logic Lab · ม.4</span>
+          <button id="hotspotLesson" type="button" class="hotspot" data-action="lesson" aria-label="แตะโต๊ะเรียนเพื่อเปิดบทเรียน">✎ <span>บทเรียน</span></button>
+          <button id="hotspotGame" type="button" class="hotspot" data-action="game" aria-label="แตะมุมเกมเพื่อเล่นเกมคณิตศาสตร์">★ <span>มุมเกม</span></button>
+          <button id="hotspotScore" type="button" class="hotspot locked" data-action="scores" aria-label="สมุดคะแนนส่วนตัว ยังไม่เปิดใช้งาน">♙ <span>คะแนน</span></button>
+          <span id="avatarTag" class="avatar-tag">ตัวละครตัวอย่าง ♡</span>
+          <span class="canvas-caption">ตัวอย่างห้องเรียน · ไม่แสดงนักเรียนออนไลน์จริง</span>
+        </div>
+        <div class="view-controls">
+          <p id="viewHint">ลากนิ้วบนห้องเพื่อหมุนมุมมอง</p>
+          <div class="view-buttons">
+            <button id="rotateLeft" type="button" aria-label="หมุนห้องไปทางซ้าย">↶</button>
+            <button id="resetView" type="button" class="reset-button">คืนมุมมอง</button>
+            <button id="rotateRight" type="button" aria-label="หมุนห้องไปทางขวา">↷</button>
+          </div>
+        </div>
+      </section>
+      <section class="actions" aria-labelledby="action-title">
+        <div class="actions-header"><h2 id="action-title">อยากทำอะไรวันนี้?</h2><button id="changeAvatar" type="button" class="outfit">✿ เปลี่ยนสีชุดตัวละคร</button></div>
+        <div class="action-grid">
+          <a class="action-tile lesson" id="lessonLink" href="../../math.html#m4-h1"><span class="tile-icon" aria-hidden="true">✎</span><strong>เข้าเรียน</strong><small>เลือกบทเรียนและใบงาน</small></a>
+          <a class="action-tile game" id="gameLink" href="../../games/logic-equivalence/"><span class="tile-icon" aria-hidden="true">★</span><strong>เล่นเกม</strong><small id="gameDescription">เกมตรรกศาสตร์ ม.4</small></a>
+          <button class="action-tile score" id="scoreButton" type="button"><span class="tile-icon" aria-hidden="true">♧</span><strong>สมุดคะแนน</strong><small>สำหรับบัญชีนักเรียน · เร็ว ๆ นี้</small></button>
+        </div>
+      </section>
+      <p class="privacy-note">ขณะนี้เป็นห้องเรียนทดลองแบบผู้เยี่ยมชม ไม่มีการล็อกอิน เก็บชื่อ รหัสผ่าน คะแนน หรือสถานะออนไลน์ของนักเรียน</p>
+    </main>
+    <footer><a href="../">ดูผังและสื่อทั้งหมด</a><span>Made with ♡ for Ying Teaching Hub</span></footer>
+  </div>
+  <dialog id="notice" aria-labelledby="noticeTitle">
+    <div class="notice-content">
+      <span class="notice-flower" aria-hidden="true">✿</span>
+      <h2 id="noticeTitle">กำลังเตรียมสมุดคะแนน</h2>
+      <p id="noticeMessage">ฟังก์ชันนี้จะเปิดเมื่อระบบบัญชีนักเรียนและสิทธิ์ข้อมูลพร้อมใช้งาน</p>
+      <button id="closeNotice" type="button">เข้าใจแล้ว</button>
+    </div>
+  </dialog>
+</body>
+</html>
