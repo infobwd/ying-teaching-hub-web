@@ -1,0 +1,10 @@
+[hidden]{display:none!important}
+.auth-card h2{font-size:20px;margin:0 0 5px}.auth-card .hint{margin:0 0 14px}.wrap{width:min(490px,calc(100% - 32px))}
+select{font:inherit;min-height:47px;width:100%;border:1px solid #d6e5da;background:#fcfefa;border-radius:12px;padding:10px 12px;color:#385244}
+#studentForm{margin-top:20px}#studentForm input{margin-bottom:3px}
+.credential{margin-top:20px;padding:16px;background:#f1f8f2;border:1px solid #d7e9dc;border-radius:14px}
+.credential h3{margin:0 0 5px;font-size:16px}.credential p{font-size:12px;color:#617e6a;margin:0 0 12px}
+.credential input{display:block;margin-bottom:9px;background:#fff;color:#497255}
+.credential button{width:100%;margin-top:7px}
+.quiet-link{display:block;margin-top:18px;font-size:12px;text-align:center;color:#6d9077;text-decoration:underline}
+.feedback{line-height:1.65}

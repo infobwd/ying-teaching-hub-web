@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f6fbf7">
+<meta name="description" content="เข้าห้องเรียนครูพี่หญิงด้วยรหัสประจำตัวนักเรียนและตรวจคะแนนส่วนตัวอย่างปลอดภัย">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://zutekwbsqdhcnvcppvjx.supabase.co; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<title>เข้าสู่ระบบนักเรียน | Ying Classroom</title>
+<link rel="stylesheet" href="./student.css">
+<script src="./student.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">ข้ามไปยังเนื้อหา</a>
+<header class="header">
+ <a href="../world/" class="brand"><span class="brand-icon" aria-hidden="true">✿</span><span><strong>Ying Classroom</strong><small>ห้องเรียนของครูพี่หญิง</small></span></a>
+ <a href="../world/" class="back">กลับห้องเรียน 3D</a>
+</header>
+<main id="main" class="shell">
+ <p class="eyebrow">MY LITTLE CLASSROOM</p>
+ <h1>ยินดีต้อนรับนักเรียน</h1>
+ <p class="subtitle">เข้าห้องเรียนด้วยรหัสประจำตัว แล้วติดตามงานและคะแนนเก็บของตัวเองได้</p>
+ <section class="panel" aria-labelledby="studentTitle">
+  <div class="panel-top"><span class="large-icon" aria-hidden="true">✦</span><h2 id="studentTitle">เข้าสู่ระบบนักเรียน</h2><p id="panelHint">ใช้รหัสประจำตัวนักเรียนและรหัสผ่านที่ครูแจ้งให้ทราบ</p></div>
+  <form id="studentLogin" autocomplete="on">
+   <label for="studentId">รหัสประจำตัวนักเรียน</label>
+   <input id="studentId" name="username" type="text" inputmode="numeric" autocomplete="username" pattern="[0-9]{3,16}" maxlength="16" placeholder="กรอกรหัสประจำตัว" required>
+   <label for="studentPassword">รหัสผ่าน</label>
+   <input id="studentPassword" name="password" type="password" autocomplete="current-password" maxlength="256" placeholder="กรอกรหัสผ่าน" required>
+   <button type="submit" class="primary" id="loginButton">เข้าสู่ห้องเรียน</button>
+  </form>
+  <form id="firstChange" hidden>
+   <p class="important">เข้าใช้ครั้งแรก กรุณาตั้งรหัสผ่านใหม่ที่เป็นความลับของตัวเอง ก่อนเปิดข้อมูลส่วนตัว</p>
+   <label for="newPassword">ตั้งรหัสผ่านใหม่ (12–72 ตัวอักษร)</label>
+   <input type="password" id="newPassword" name="new-password" autocomplete="new-password" minlength="12" maxlength="72" required>
+   <label for="confirmPassword">ยืนยันรหัสผ่านใหม่</label>
+   <input type="password" id="confirmPassword" name="confirm-password" autocomplete="new-password" minlength="12" maxlength="72" required>
+   <button type="submit" class="primary" id="changeButton">บันทึกรหัสผ่านใหม่</button>
+   <button type="button" class="text-button" id="cancelChange">กลับไปเข้าสู่ระบบ</button>
+  </form>
+  <div id="studentDashboard" class="dashboard" hidden>
+   <h2 id="studentGreeting">สวัสดี</h2>
+   <p class="logged-in">ข้อมูลหน้านี้แสดงเฉพาะบัญชีที่เข้าสู่ระบบเท่านั้น</p>
+   <a class="primary as-link" href="../world/">เข้าไปที่ห้องเรียน 3D</a>
+   <section id="scores" class="grades" aria-labelledby="gradeTitle">
+    <h3 id="gradeTitle">สมุดคะแนนเก็บของฉัน</h3>
+    <div id="gradeList" aria-live="polite">กำลังโหลดคะแนน...</div>
+   </section>
+   <button id="logout" type="button" class="secondary">ออกจากระบบ</button>
+  </div>
+  <p class="message" id="statusMessage" role="status" aria-live="polite">บัญชีนักเรียนจะเข้าใช้ได้เมื่อครูเพิ่มรายชื่อและมอบรหัสผ่านเริ่มต้นแล้ว</p>
+ </section>
+ <section class="support">
+  <h2>ต้องการความช่วยเหลือ?</h2>
+  <p>หากลืมรหัสผ่านหรือยังไม่มีบัญชี กรุณาติดต่อครูพี่หญิงโดยตรง ไม่ต้องส่งรหัสผ่านให้เพื่อนหรือโพสต์ในกลุ่มแชท</p>
+  <p>ครูผู้สอน <a href="../login/">เข้าสู่ระบบครู</a></p>
+ </section>
+</main>
+<footer>Ying Teaching Hub · ข้อมูลคะแนนส่วนตัวไม่เก็บไว้ใน GitHub Pages</footer>
+</body>
+</html>

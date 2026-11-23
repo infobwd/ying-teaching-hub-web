@@ -254,7 +254,7 @@ function showNotice(title,message){
   if(!dom.notice.open)dom.notice.showModal();
 }
 document.querySelectorAll("[data-level]").forEach(btn=>btn.addEventListener("click",()=>updateLevel(btn.dataset.level)));
-document.getElementById("scoreButton").addEventListener("click",()=>showNotice("สมุดคะแนนกำลังเตรียม","เมื่อตรวจสิทธิ์ระบบบัญชีนักเรียนเรียบร้อยแล้ว นักเรียนจะดูได้เฉพาะคะแนนของตนเอง ขณะนี้ยังไม่มีข้อมูลคะแนนจริง"));
+document.getElementById("scoreButton").addEventListener("click",()=>{window.location.assign("../student/#scores");});
 document.getElementById("hotspotScore").addEventListener("click",()=>document.getElementById("scoreButton").click());
 document.getElementById("hotspotTeacher").addEventListener("click",()=>showNotice("ครูพี่หญิงยินดีต้อนรับ ♡","ยินดีต้อนรับสู่ห้องเรียนคณิตศาสตร์ ม.2 และ ม.4 นะคะ เลือกบทเรียนหรือมุมเกมเพื่อเริ่มเรียนได้เลยค่ะ"));
 document.getElementById("hotspotLesson").addEventListener("click",()=>{window.location.assign(dom.lesson.href);});

@@ -13,6 +13,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - name: Check Supabase Edge Function TypeScript
+        run: deno check supabase/functions/yth-student-auth/index.ts
       - name: Check browser JavaScript syntax
         run: |
           node --check app.js
@@ -22,6 +27,8 @@ jobs:
           node --check classroom/auth/auth-core.js
           node --check classroom/auth/status-world.js
           node --check classroom/login/login.js
+          node --check classroom/student/student.js
+          node --check classroom/students/manage.js
           node --check --input-type=module < logic/truth-table.js
           node --check logic/logic-engine.mjs
           node --check --input-type=module < logic/practice.js
@@ -32,6 +39,7 @@ jobs:
           node tests/classroom.test.mjs
           node tests/classroom-world.test.mjs
           node tests/classroom-auth.test.mjs
+          node tests/student-auth.test.mjs
       - name: Verify Truth Table Lab mathematical engine and page safety
         run: |
           node tests/truth-table.test.mjs
