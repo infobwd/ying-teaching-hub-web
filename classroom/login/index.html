@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7f8f5">
+<meta name="description" content="เข้าสู่ระบบครูพี่หญิง — บัญชีครูได้รับสิทธิ์ผ่าน Supabase Auth">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://zutekwbsqdhcnvcppvjx.supabase.co; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<title>เข้าสู่ระบบครู | Ying Classroom</title>
+<link rel="stylesheet" href="./login.css">
+<script src="../auth/auth-core.js" defer></script>
+<script src="./login.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">ข้ามไปยังแบบฟอร์ม</a>
+<header class="top"><a class="brand" href="../world/"><span class="brand-mark" aria-hidden="true">✿</span><span><strong>Ying Classroom</strong><small>ห้องเรียนครูพี่หญิง</small></span></a><a class="back" href="../world/">กลับห้องเรียน</a></header>
+<main id="main" class="wrap">
+<section class="welcome">
+<p class="eyebrow">TEACHER SPACE</p>
+<h1>ยินดีต้อนรับกลับค่ะ <span aria-hidden="true">♡</span></h1>
+<p>จัดการพื้นที่ส่วนตัวสำหรับครู โดยข้อมูลนักเรียนจะไม่ปรากฏในหน้าเว็บสาธารณะ</p>
+</section>
+<div class="auth-card">
+<div class="avatar" aria-hidden="true">✿</div>
+<h2>เข้าสู่ระบบครู</h2>
+<p class="hint">ใช้บัญชีอีเมลที่ผู้ดูแลระบบอนุมัติให้เป็นครูเท่านั้น</p>
+<form id="loginForm" autocomplete="on">
+<label for="email">อีเมลครู</label>
+<input id="email" type="email" name="email" inputmode="email" autocomplete="username" required maxlength="254" placeholder="teacher@example.com">
+<label for="password">รหัสผ่าน</label>
+<input id="password" type="password" name="password" autocomplete="current-password" required minlength="1" placeholder="กรอกรหัสผ่าน">
+<button id="submitLogin" class="primary" type="submit">เข้าสู่ระบบ</button>
+</form>
+<div id="dashboard" class="dashboard" hidden>
+<p id="welcomeTeacher" class="teacher-name"></p>
+<p class="session-note">ยืนยันตัวตนและสิทธิ์ครูแล้วเฉพาะเบราว์เซอร์นี้</p>
+<div class="dashboard-actions"><a class="primary" href="../world/">กลับเข้าห้องเรียน 3D</a><button type="button" id="logout" class="secondary">ออกจากระบบ</button></div>
+<details class="password-change">
+<summary>เปลี่ยนรหัสผ่านครู</summary>
+<form id="changeForm">
+<label for="newPassword">รหัสผ่านใหม่ (อย่างน้อย 12 ตัวอักษร)</label>
+<input id="newPassword" type="password" name="new-password" autocomplete="new-password" minlength="12" maxlength="72" required>
+<label for="confirmPassword">ยืนยันรหัสผ่านใหม่</label>
+<input id="confirmPassword" type="password" name="confirm-password" autocomplete="new-password" minlength="12" maxlength="72" required>
+<button class="secondary" id="changePasswordButton" type="submit">บันทึกรหัสผ่านใหม่</button>
+</form>
+</details>
+</div>
+<p class="feedback" id="feedback" role="status" aria-live="polite">หากยังไม่มีบัญชีครู ให้ผู้ดูแลระบบสร้างบัญชีและกำหนดสิทธิ์ก่อน</p>
+</div>
+<div class="student-note">
+<h3>สำหรับนักเรียน ม.2 และ ม.4</h3>
+<p>ยังไม่เปิดให้เข้าสู่ระบบด้วยเลขประจำตัวนักเรียน จนกว่าระบบออกบัญชี รหัสผ่านเริ่มต้น และตรวจสิทธิ์ข้อมูลส่วนบุคคลจะพร้อม สามารถใช้สื่อสาธารณะได้ตามปกติโดยไม่ต้องล็อกอิน</p>
+<a href="../world/">เปิดห้องเรียนสาธารณะ</a>
+</div>
+</main>
+<footer>Ying Teaching Hub · ไม่มีระบบสมัครบัญชีครูด้วยตนเอง</footer>
+</body>
+</html>
