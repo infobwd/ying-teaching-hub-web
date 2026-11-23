@@ -21,7 +21,7 @@
         <span class="brand-icon" aria-hidden="true">✿</span>
         <span><strong>Ying Classroom</strong><small>ห้องเรียนของครูพี่หญิง</small></span>
       </a>
-      <div class="header-actions"><span class="preview-badge">โหมดทดลองชม</span><a id="teacherLoginLink" class="teacher-auth-link" href="../login/">เข้าสู่ระบบครู</a><span id="teacherAuthState" class="teacher-auth-state" aria-live="polite">ผู้เยี่ยมชม</span></div>
+      <div class="header-actions"><span class="preview-badge">โหมดทดลองชม</span><a class="teacher-auth-link" href="../student/">นักเรียนเข้าสู่ระบบ</a><a id="teacherLoginLink" class="teacher-auth-link" href="../login/">เข้าสู่ระบบครู</a><span id="teacherAuthState" class="teacher-auth-state" aria-live="polite">ผู้เยี่ยมชม</span></div>
     </header>
     <main id="main">
       <div class="intro">
@@ -47,7 +47,7 @@
           <span id="boardTag" class="board-tag">Logic Lab · ม.4</span>
           <button id="hotspotLesson" type="button" class="hotspot" data-action="lesson" aria-label="แตะโต๊ะเรียนเพื่อเปิดบทเรียน">✎ <span>บทเรียน</span></button>
           <button id="hotspotGame" type="button" class="hotspot" data-action="game" aria-label="แตะมุมเกมเพื่อเล่นเกมคณิตศาสตร์">★ <span>มุมเกม</span></button>
-          <button id="hotspotScore" type="button" class="hotspot locked" data-action="scores" aria-label="สมุดคะแนนส่วนตัว ยังไม่เปิดใช้งาน">♙ <span>คะแนน</span></button>
+          <button id="hotspotScore" type="button" class="hotspot" data-action="scores" aria-label="เปิดเข้าสู่ระบบเพื่อดูคะแนนส่วนตัว">♙ <span>คะแนน</span></button>
           <button id="hotspotTeacher" type="button" class="hotspot teacher-hotspot" data-action="teacher" aria-label="แตะตัวละครครูพี่หญิงเพื่อทักทาย">♡ <span>ครูพี่หญิง</span></button>
           <span id="avatarTag" class="avatar-tag">ตัวละครตัวอย่าง ♡</span>
           <span class="canvas-caption">ตัวอย่างห้องเรียน · ไม่แสดงนักเรียนออนไลน์จริง</span>
@@ -66,10 +66,10 @@
         <div class="action-grid">
           <a class="action-tile lesson" id="lessonLink" href="../../math.html#m4-h1"><span class="tile-icon" aria-hidden="true">✎</span><strong>เข้าเรียน</strong><small>เลือกบทเรียนและใบงาน</small></a>
           <a class="action-tile game" id="gameLink" href="../../games/logic-equivalence/"><span class="tile-icon" aria-hidden="true">★</span><strong>เล่นเกม</strong><small id="gameDescription">เกมตรรกศาสตร์ ม.4</small></a>
-          <button class="action-tile score" id="scoreButton" type="button"><span class="tile-icon" aria-hidden="true">♧</span><strong>สมุดคะแนน</strong><small>สำหรับบัญชีนักเรียน · เร็ว ๆ นี้</small></button>
+          <button class="action-tile score" id="scoreButton" type="button"><span class="tile-icon" aria-hidden="true">♧</span><strong>สมุดคะแนน</strong><small>ดูเฉพาะคะแนนของฉัน</small></button>
         </div>
       </section>
-      <p class="privacy-note">ขณะนี้เป็นห้องเรียนทดลองแบบผู้เยี่ยมชม ไม่มีการล็อกอิน เก็บชื่อ รหัสผ่าน คะแนน หรือสถานะออนไลน์ของนักเรียน</p>
+      <p class="privacy-note">ผู้เยี่ยมชมใช้สื่อสาธารณะได้โดยไม่ต้องล็อกอิน ส่วนการเข้าสู่ระบบและคะแนนเป็นข้อมูลส่วนตัวใน Supabase</p>
     </main>
     <footer><a href="../">ดูผังและสื่อทั้งหมด</a><span>Made with ♡ for Ying Teaching Hub</span></footer>
   </div>
