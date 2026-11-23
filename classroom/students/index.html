@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f8fbf8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://zutekwbsqdhcnvcppvjx.supabase.co; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<title>จัดการบัญชีนักเรียน | Ying Classroom</title>
+<link rel="stylesheet" href="../login/login.css"><link rel="stylesheet" href="./manage.css">
+<script src="../auth/auth-core.js" defer></script><script src="./manage.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">ข้ามไปยังเนื้อหา</a>
+<header class="top"><a class="brand" href="../world/"><span class="brand-mark" aria-hidden="true">✿</span><span><strong>Ying Classroom</strong><small>พื้นที่จัดการของครู</small></span></a><a class="back" href="../login/">บัญชีครู</a></header>
+<main id="main" class="wrap">
+<section class="welcome"><p class="eyebrow">TEACHER TOOLS</p><h1>บัญชีนักเรียน</h1><p>ออกบัญชีให้นักเรียนอย่างปลอดภัย โดยครูเป็นผู้ยืนยันรายชื่อ</p></section>
+<div class="auth-card">
+ <h2>เพิ่มนักเรียนเข้าห้องเรียน</h2>
+ <p class="hint">เฉพาะครูที่เข้าสู่ระบบและได้รับสิทธิ์ของห้องเรียนเท่านั้น</p>
+ <p class="feedback" id="manageStatus" role="status" aria-live="polite">กำลังตรวจสอบสิทธิ์ครู...</p>
+ <form id="studentForm" hidden autocomplete="off">
+  <label for="classId">ห้องเรียน</label><select id="classId" required><option value="">เลือกห้องเรียน</option></select>
+  <label for="studentIdInput">รหัสประจำตัวนักเรียน</label><input id="studentIdInput" type="text" pattern="[0-9]{3,16}" maxlength="16" inputmode="numeric" autocomplete="off" required>
+  <label for="givenName">ชื่อ</label><input id="givenName" type="text" maxlength="100" autocomplete="off" required>
+  <label for="familyName">นามสกุล</label><input id="familyName" type="text" maxlength="100" autocomplete="off" required>
+  <button type="submit" class="primary" id="provision">สร้างบัญชีและรหัสผ่านเริ่มต้น</button>
+ </form>
+ <div id="credential" hidden class="credential">
+  <h3>ข้อมูลสำหรับส่งให้นักเรียนแบบส่วนตัว</h3>
+  <p>รหัสผ่านเริ่มต้นจะแสดงเพียงครั้งนี้ ไม่ถูกเก็บไว้ในหน้าเว็บ</p>
+  <label for="createdId">Username (รหัสประจำตัว)</label><input readonly id="createdId">
+  <label for="createdPassword">รหัสผ่านเริ่มต้น</label><input readonly id="createdPassword">
+  <button type="button" class="secondary" id="copyCredentials">คัดลอกข้อมูลเข้าสู่ระบบ</button>
+  <button type="button" class="secondary" id="closeCredential">ปิดและล้างรหัสผ่านออกจากหน้าจอ</button>
+  <p class="feedback">แจ้งนักเรียนโดยตรง ห้ามส่งข้อมูลเข้าสู่ระบบลงกลุ่มสาธารณะ นักเรียนต้องเปลี่ยนรหัสผ่านเมื่อเข้าใช้ครั้งแรก</p>
+ </div>
+ <a class="quiet-link" href="../login/">กลับหน้าเข้าสู่ระบบครู</a>
+</div>
+</main>
+<footer>Ying Teaching Hub · เฉพาะครูผู้ได้รับสิทธิ์ · รองรับมือถือ</footer>
+</body></html>
