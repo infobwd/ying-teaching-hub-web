@@ -11,3 +11,5 @@ dialog{border:1px solid var(--border);border-radius:19px;box-shadow:0 22px 70px 
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
 .published-item{display:block;padding:10px 0;text-decoration:underline;color:var(--green)}
+
+.world-entry{display:flex;align-items:center;gap:15px;border:2px solid #c2dfcc;background:linear-gradient(110deg,#e8f6e9,#fff5f2);border-radius:19px;padding:17px 20px;margin:0 0 17px;color:#345a42}.world-entry strong,.world-entry small{display:block}.world-entry strong{font-size:1.07rem;font-weight:900}.world-entry small{font-size:.8rem;color:#607f6d}.world-entry .world-flower{font-size:35px;color:#c9839b}.world-entry>span:last-child{margin-left:auto;font-size:23px}.world-entry:hover{background:#e5f5e8}@media(max-width:600px){.world-entry{padding:13px 12px;gap:9px}.world-entry strong{font-size:.9rem}.world-entry small{font-size:.73rem}.world-entry .world-flower{font-size:26px}}
