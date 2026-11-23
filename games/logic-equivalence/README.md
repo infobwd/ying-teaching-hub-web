@@ -5,11 +5,12 @@
 
 This is a self-contained, public static educational **practice game**. No changes are made to the surrounding Ying Teaching Hub homepage, approved lesson PDFs, or private teaching documents.
 
-## Question sourcing and scoring
-- 5 statements are reproduced from the supplied photo of **แบบฝึกหัดที่ 2 ตรวจสอบและแก้ไขการแปลงรูป**. Expected answers: F, T, F, T, T.
-- The remaining 10 questions are drawn from 11 distinct identities in the supplied **รูปแบบของประพจน์ที่สมมูลกันที่ควรทราบ** reference, using teacher-authored false variants for 5 of the selected 10. They are not verbatim false variants from the reference.
-- Total 15 questions, 8 correct identities and 7 non-equivalent expressions per round. Order and selected variants change between attempts. All displayed equivalence answers are independently computed using exhaustive truth tables for p/q/r.
-- 1 point per correct answer, 15 total. No countdown and no attempt limit. Explanations and correct forms appear only after submitting all 15 questions.
+## Question sourcing and scoring — source-only v2
+- Uses **all 15 original equivalence pairs from the single screenshot “รูปแบบของประพจน์ที่สมมูลกันที่ควรทราบ”** (printed 1–13, handwritten 14–15), and no question from the other worksheet.
+- The image consists entirely of valid equivalences. To prevent scoring 15/15 merely by selecting “true” each time, the game now asks students to choose one equivalent expression from four options. All RHS options are taken from expressions that appear on the same screenshot; distractors are checked as NOT equivalent to the given LHS using exhaustive truth tables.
+- Shuffles question order and options each attempt. One point per correct answer, 15 points total. No time limit; play unlimited times.
+- The source text itself is not rewritten. Questions 9 and 10 share the same LHS (p → q), and 4 and 11 share p ↔ q, as shown in the reference. Game has exactly one valid answer per round question.
+- The content revision has new `SERIES_ID` `ying-equivalence-2569-photo-only-v2` so earlier truth/false results are not used as the new game's best-score/history. Original browser identity remains stored in the same key; unfinished older-version rounds restart automatically.
 
 ## Device registration, privacy and limits
 - First play: ID, class, first name and last name are required. The browser locally saves the initial registration under `ying-logic-quest-device-v1` and locks subsequent games on that same origin/browser profile to that student.

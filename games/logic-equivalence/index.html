@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#6657cc">
-  <meta name="description" content="เกมตรวจสอบประพจน์สมมูล วิชาคณิตศาสตร์เพิ่มเติม ม.4 — ฝึกตัดสินถูก/ผิด สรุปคะแนนและแชร์ผลได้">
+  <meta name="description" content="เกมจับคู่รูปประพจน์สมมูล วิชาคณิตศาสตร์เพิ่มเติม ม.4 — 15 ข้อจากภาพสรุปหน้าเดียว พร้อมคะแนนและแชร์ผลได้">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
   <link rel="stylesheet" href="./style.css">
   <script type="module" src="./app.mjs"></script>
@@ -21,12 +21,12 @@
     <section id="entry" class="pane" aria-labelledby="entry-title">
       <div class="hero-grid">
         <div>
-          <span class="eyebrow"><span class="sparkle">✦</span> แบบทดสอบจากใบงานและสรุปบทเรียน</span>
+          <span class="eyebrow"><span class="sparkle">✦</span> แบบทดสอบจากภาพสรุปประพจน์สมมูล 15 ข้อ</span>
           <h1 id="entry-title">ภารกิจพิชิต<br><em>ประพจน์สมมูล</em></h1>
-          <p class="lead">ดูว่าประพจน์สองข้างสมมูลกันจริงหรือไม่ แล้วเลือก <strong>ถูก</strong> หรือ <strong>ผิด</strong> ให้ครบทุกภารกิจ</p>
+          <p class="lead">เลือก <strong>นิพจน์ที่สมมูลกัน</strong> ให้ถูกต้องจาก 4 ตัวเลือก โดยใช้เฉพาะรูปประพจน์ในภาพสรุปหน้านี้</p>
           <div class="stat-row"><div><b>15</b><span>ข้อ / รอบ</span></div><div><b>∞</b><span>เล่นซ้ำได้</span></div><div><b>100%</b><span>ตรวจด้วยตารางค่าความจริง</span></div></div>
         </div>
-        <div class="hero-art" aria-hidden="true"><div class="art-top">LOGIC LAB / 01</div><div class="math-one">~(p ∨ q)</div><div class="math-eq">≡ ?</div><div class="math-two">~p ∧ ~q</div><div class="art-foot">TRUE / FALSE</div></div>
+        <div class="hero-art" aria-hidden="true"><div class="art-top">LOGIC LAB / 01</div><div class="math-one">~(p ∨ q)</div><div class="math-eq">≡ ?</div><div class="math-two">~p ∧ ~q</div><div class="art-foot">CHOOSE THE EQUIVALENT FORM</div></div>
       </div>
       <div class="form-panel" id="enrollment-panel">
         <div class="section-title"><span class="circle-num">1</span><div><h2>ลงทะเบียนผู้เล่น</h2><p>กรอกข้อมูลจริงเพื่อให้ครูตรวจคะแนนได้</p></div></div>
@@ -56,13 +56,18 @@
       <div class="game-meta"><span id="play-user" class="player-chip"></span><span class="round-chip">15 ภารกิจ / รอบ</span></div>
       <div class="progress-heading"><div><span class="eyebrow">MISSION IN PROGRESS</span><h1 id="game-title">พิสูจน์ความสมมูล</h1></div><strong id="progress-count">1 / 15</strong></div>
       <div class="track" role="progressbar" id="progress-track" aria-label="ความคืบหน้าของเกม" aria-valuemin="0" aria-valuemax="15" aria-valuenow="0"><span id="progress-fill"></span></div>
-      <div class="task-card"><div class="task-head"><span id="task-type">แบบฝึกหัดที่ 2</span><span>พิจารณาว่า “ถูก” หรือ “ผิด”</span></div>
-        <div class="formula" aria-label="โจทย์สมมูล"><span id="left-formula"></span><span class="equiv">≡</span><span id="right-formula"></span></div>
-        <p class="question">ประพจน์ทั้งสองข้างสมมูลกันหรือไม่?</p>
-        <div class="answer-grid"><button id="choice-true" type="button" class="answer answer-true" aria-pressed="false"><span class="answer-sign">✓</span><span><b>ถูก</b><small>สมมูลกัน</small></span></button><button id="choice-false" type="button" class="answer answer-false" aria-pressed="false"><span class="answer-sign">×</span><span><b>ผิด</b><small>ไม่สมมูลกัน</small></span></button></div>
+      <div class="task-card"><div class="task-head"><span id="task-type">แบบฝึกหัดที่ 2</span><span>เลือกนิพจน์ที่สมมูลกับด้านบน</span></div>
+        <div class="formula" aria-label="ประพจน์ตั้งต้น"><span id="left-formula"></span><span class="equiv">≡ ?</span></div>
+        <p class="question">ข้อใดเป็นรูปประพจน์ที่สมมูลกับด้านบน?</p>
+        <div class="answer-grid options-grid" id="options-grid" role="group" aria-label="เลือกคำตอบที่สมมูลกัน">
+          <button type="button" class="answer option-choice" aria-pressed="false"><span class="choice-letter">ก</span><span class="option-formula"></span></button>
+          <button type="button" class="answer option-choice" aria-pressed="false"><span class="choice-letter">ข</span><span class="option-formula"></span></button>
+          <button type="button" class="answer option-choice" aria-pressed="false"><span class="choice-letter">ค</span><span class="option-formula"></span></button>
+          <button type="button" class="answer option-choice" aria-pressed="false"><span class="choice-letter">ง</span><span class="option-formula"></span></button>
+        </div>
       </div>
       <div class="game-actions"><button id="prev-btn" type="button" class="subtle">← ข้อก่อนหน้า</button><span id="saved-hint">คำตอบบันทึกในเครื่อง</span><button id="next-btn" type="button" class="primary" disabled>ข้อต่อไป →</button></div>
-      <p class="muted center tiny">ระบบจะเฉลยทั้งหมดหลังส่งคำตอบครบ 15 ข้อ เพื่อให้ได้ลองคิดด้วยตนเองก่อน</p>
+      <p class="muted center tiny">เฉลยหลังส่งครบ 15 ข้อ · ทุกตัวเลือกเป็นนิพจน์ที่ปรากฏในภาพหน้านี้</p>
     </section>
 
     <section id="result" class="pane result-pane" aria-labelledby="result-title" hidden>

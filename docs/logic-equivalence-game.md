@@ -1,20 +1,20 @@
 # Logic Quest — Teacher launch / QA plan (23 November 2026)
 
-## Goal
-Build a separate mobile-first game for additional mathematics M.4, equivalence of propositions. This is a direct practice exercise from two supplied reference screenshots: exercise 2 (5 statements) and a summary of equivalent forms (15 stated identities). It must not interfere with the Creative Studio congratulatory-card templates or the existing learning hub pages.
+## Goal and v2 source boundary (23 November 2026)
+Use **only** the supplied page “รูปแบบของประพจน์ที่สมมูลกันที่ควรทราบ” containing 15 original equivalent forms. No old worksheet 2 questions are included.
 
 ## Student flow
-1. Open the independent `/games/logic-equivalence/` page.
-2. Enter real school student ID, classroom, given name and surname (first use on the browser only).
-3. Complete 15 questions: choose **ถูก** or **ผิด**. No correctness feedback until finished.
-4. End screen: score /15, percent, best score on the browser, attempt number, date/time, receipt code and short browser-device code.
-5. Share results through the phone share sheet, download a PNG score card, or screenshot and send to teacher.
-6. Play repeatedly with randomized questions; no attempt limit. Last 40 results and current unfinished attempt persist on the browser; total attempt count persists.
+1. Open standalone game at `/games/logic-equivalence/`.
+2. Register student ID, room, given/family names; browser identity remains locked on this origin.
+3. One original LHS expression from the page is displayed, with four RHS options drawn exclusively from the same page. Choose the truly equivalent formula; 15 items each round, in shuffled order.
+4. After submitting all 15, receive score and percentage, highest score for v2, attempt number, date, receipt and browser-code; share or save PNG screenshot for teacher.
+5. Unlimited retries, 40 most recent local records, and on-device progress persistence; old v1 results stay stored but are not counted in v2 best score.
 
-## Accuracy controls
-- The five supplied exercise statements are preserved with their original truth status. In particular ~(p ∨ q) ≡ ~p ∨ ~q and p ∧ (q ∨ r) ≡ (p ∧ q) ∨ r are both **false**.
-- Variant questions from the equivalence list are distinguished from the original reference by using teacher-authored incorrect variants. Every statement is evaluated across all 8 truth assignments for p/q/r.
-- 7 Node tests currently verify the truth table and generator properties; browser smoke tests cover a 15-question run, result page, PNG export, replay and responsive mobile layout in an embedded Chromium test context. These do not replace a real live HTTPS/iPhone QA run.
+## Logic QA
+- All 15 published source equivalences are mathematically valid and source-faithful.
+- Every generated incorrect option is a RHS expression found elsewhere on the same page, with truth tables confirming it is not equivalent to that question's LHS.
+- A mixed original worksheet+summary 15-item true/false generator existed in v1; the v2 bank replaces it entirely, with a new series ID.
+- All game inputs/answers stay in localStorage and are not sent to the teacher automatically.
 
 ## Privacy and anti-impersonation boundary
 - Student identity and results are stored **only in localStorage of the student's browser**, not uploaded to GitHub or teacher storage.
