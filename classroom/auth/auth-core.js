@@ -72,12 +72,12 @@
       if(!user || typeof user.id!=="string")return null;
       // RLS only allows reading the caller's own membership; no client writes.
       const rows = await request(
-        "/rest/v1/classroom_memberships?select=role,display_name&user_id=eq."+
+        "/rest/v1/yth_user_roles?select=role&user_id=eq."+
         encodeURIComponent(user.id)+"&limit=1",
         {accessToken:session.access_token}
       );
       if(!Array.isArray(rows)||rows.length!==1||rows[0].role!=="teacher")return null;
-      return {id:user.id,email:user.email||"",displayName:rows[0].display_name||"ครูพี่หญิง",role:"teacher"};
+      return {id:user.id,email:user.email||"",displayName:"คุณครู",role:"teacher"};
     }catch{return null;}
   }
   async function signInTeacher(email,password){
