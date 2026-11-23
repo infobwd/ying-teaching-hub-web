@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#6657cc">
+  <meta name="description" content="เกมตรวจสอบประพจน์สมมูล วิชาคณิตศาสตร์เพิ่มเติม ม.4 — ฝึกตัดสินถูก/ผิด สรุปคะแนนและแชร์ผลได้">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.mjs"></script>
+  <title>Logic Quest | เกมประพจน์สมมูล ม.4</title>
+</head>
+<body>
+  <a class="skip" href="#main">ข้ามไปยังเนื้อหา</a>
+  <div class="orbs" aria-hidden="true"><span></span><span></span><span></span></div>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">≡</span><span><strong>LOGIC QUEST</strong><small>เกมทดสอบความเข้าใจ · ตรรกศาสตร์เพิ่มเติม</small></span></div>
+    <div class="toplabel">ม.4 <span class="top-dot"></span> ประพจน์สมมูล</div>
+  </header>
+  <main id="main" class="shell">
+    <section id="entry" class="pane" aria-labelledby="entry-title">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow"><span class="sparkle">✦</span> แบบทดสอบจากใบงานและสรุปบทเรียน</span>
+          <h1 id="entry-title">ภารกิจพิชิต<br><em>ประพจน์สมมูล</em></h1>
+          <p class="lead">ดูว่าประพจน์สองข้างสมมูลกันจริงหรือไม่ แล้วเลือก <strong>ถูก</strong> หรือ <strong>ผิด</strong> ให้ครบทุกภารกิจ</p>
+          <div class="stat-row"><div><b>15</b><span>ข้อ / รอบ</span></div><div><b>∞</b><span>เล่นซ้ำได้</span></div><div><b>100%</b><span>ตรวจด้วยตารางค่าความจริง</span></div></div>
+        </div>
+        <div class="hero-art" aria-hidden="true"><div class="art-top">LOGIC LAB / 01</div><div class="math-one">~(p ∨ q)</div><div class="math-eq">≡ ?</div><div class="math-two">~p ∧ ~q</div><div class="art-foot">TRUE / FALSE</div></div>
+      </div>
+      <div class="form-panel" id="enrollment-panel">
+        <div class="section-title"><span class="circle-num">1</span><div><h2>ลงทะเบียนผู้เล่น</h2><p>กรอกข้อมูลจริงเพื่อให้ครูตรวจคะแนนได้</p></div></div>
+        <form id="register-form" novalidate>
+          <div class="fields">
+            <label>เลขประจำตัวนักเรียน <span>*</span><input id="student-id" name="student-id" inputmode="numeric" pattern="[0-9]*" maxlength="15" autocomplete="off" placeholder="เช่น 12345" required></label>
+            <label>ห้องเรียน <span>*</span><input id="room" name="room" maxlength="30" autocomplete="off" placeholder="เช่น ม.4/7" required></label>
+            <label>ชื่อ <span>*</span><input id="given" name="given" maxlength="80" autocomplete="off" placeholder="ชื่อจริง" required></label>
+            <label>นามสกุล <span>*</span><input id="family" name="family" maxlength="80" autocomplete="off" placeholder="นามสกุล" required></label>
+          </div>
+          <p id="register-error" class="message error" role="alert" hidden></p>
+          <button class="primary big" type="submit">เริ่มเล่นเกม <span aria-hidden="true">→</span></button>
+        </form>
+        <div id="registered-player" hidden>
+          <div class="registered-badge">เครื่องนี้ลงทะเบียนผู้เล่นแล้ว</div>
+          <p class="registered-name" id="player-name"></p>
+          <p class="muted" id="player-meta"></p>
+          <button class="primary big" type="button" id="continue-btn">เริ่มภารกิจอีกครั้ง <span aria-hidden="true">→</span></button>
+          <button class="subtle big" type="button" id="last-result-btn" style="width:100%;margin-top:10px" hidden>ดูคะแนนครั้งล่าสุด</button>
+        </div>
+        <div class="privacy"><span class="privacy-symbol" aria-hidden="true">⌁</span><p><strong>จำข้อมูลต่อเบราว์เซอร์</strong> เครื่องนี้จะผูกกับเลขประจำตัวที่ลงทะเบียนครั้งแรก เพื่อลดการสลับชื่อผู้เล่น แต่ไม่ใช่การพิสูจน์ตัวตน และล้างข้อมูลเบราว์เซอร์/เปลี่ยนเครื่องแล้วอาจเริ่มใหม่ได้ คะแนนเก็บในเครื่อง ไม่ได้ส่งเข้าฐานครูอัตโนมัติ</p></div>
+        <p id="storage-error" class="message error" role="alert" hidden></p>
+      </div>
+    </section>
+
+    <section id="game" class="pane" aria-labelledby="game-title" hidden>
+      <div class="game-meta"><span id="play-user" class="player-chip"></span><span class="round-chip">15 ภารกิจ / รอบ</span></div>
+      <div class="progress-heading"><div><span class="eyebrow">MISSION IN PROGRESS</span><h1 id="game-title">พิสูจน์ความสมมูล</h1></div><strong id="progress-count">1 / 15</strong></div>
+      <div class="track" role="progressbar" id="progress-track" aria-label="ความคืบหน้าของเกม" aria-valuemin="0" aria-valuemax="15" aria-valuenow="0"><span id="progress-fill"></span></div>
+      <div class="task-card"><div class="task-head"><span id="task-type">แบบฝึกหัดที่ 2</span><span>พิจารณาว่า “ถูก” หรือ “ผิด”</span></div>
+        <div class="formula" aria-label="โจทย์สมมูล"><span id="left-formula"></span><span class="equiv">≡</span><span id="right-formula"></span></div>
+        <p class="question">ประพจน์ทั้งสองข้างสมมูลกันหรือไม่?</p>
+        <div class="answer-grid"><button id="choice-true" type="button" class="answer answer-true" aria-pressed="false"><span class="answer-sign">✓</span><span><b>ถูก</b><small>สมมูลกัน</small></span></button><button id="choice-false" type="button" class="answer answer-false" aria-pressed="false"><span class="answer-sign">×</span><span><b>ผิด</b><small>ไม่สมมูลกัน</small></span></button></div>
+      </div>
+      <div class="game-actions"><button id="prev-btn" type="button" class="subtle">← ข้อก่อนหน้า</button><span id="saved-hint">คำตอบบันทึกในเครื่อง</span><button id="next-btn" type="button" class="primary" disabled>ข้อต่อไป →</button></div>
+      <p class="muted center tiny">ระบบจะเฉลยทั้งหมดหลังส่งคำตอบครบ 15 ข้อ เพื่อให้ได้ลองคิดด้วยตนเองก่อน</p>
+    </section>
+
+    <section id="result" class="pane result-pane" aria-labelledby="result-title" hidden>
+      <div id="result-capture" class="score-poster">
+        <span class="eyebrow">MISSION COMPLETED</span><h1 id="result-title">สรุปผลภารกิจ</h1>
+        <div class="score-ring"><strong id="score-pct">0%</strong><span>คะแนนความถูกต้อง</span></div>
+        <p id="result-caption" class="result-caption"></p>
+        <div class="score-metrics"><div><b id="result-correct"></b><small>ตอบถูก / 15</small></div><div><b id="result-best"></b><small>คะแนนสูงสุด</small></div><div><b id="result-attempt"></b><small>เล่นครั้งที่</small></div></div>
+        <div class="receipt"><div><span>ชื่อ-นามสกุล</span><b id="receipt-name"></b></div><div><span>เลขประจำตัว / ห้อง</span><b id="receipt-id"></b></div><div><span>วันและเวลา</span><b id="receipt-date"></b></div><div><span>รหัสผลการเล่น</span><b id="receipt-code"></b></div><div><span>รหัสเครื่องย่อ</span><b id="receipt-device"></b></div></div>
+        <p class="receipt-footer">LOGIC QUEST · คณิตศาสตร์เพิ่มเติม ม.4 · คะแนนจากการทำแบบทดสอบบนเครื่องนี้</p>
+      </div>
+      <div class="result-controls"><p><strong>ส่งผลให้ครู:</strong> ใช้ปุ่มแชร์ผล บันทึกภาพคะแนน หรือแคปหน้าจอส่วนสรุปด้านบน</p><div class="button-grid"><button id="share-btn" type="button" class="primary">แชร์ผล</button><button id="image-btn" type="button" class="secondary">บันทึกภาพคะแนน</button><button id="copy-btn" type="button" class="subtle">คัดลอกข้อความ</button></div><p id="share-status" class="message" role="status"></p></div>
+      <details class="review-box"><summary>ดูเฉลยและคำอธิบายทั้ง 15 ข้อ</summary><div id="answers-review"></div></details>
+      <section class="history-box"><h2>ประวัติคะแนนบนเครื่องนี้</h2><div id="history-list"></div></section>
+      <button id="replay-btn" type="button" class="primary big">เล่นรอบใหม่ <span aria-hidden="true">↻</span></button>
+    </section>
+  </main>
+  <footer class="footer">Ying Teaching Hub · Logic Quest · ใช้เพื่อการเรียนรู้และส่งผลให้ครูตรวจรับ</footer>
+</body></html>
