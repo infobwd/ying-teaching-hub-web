@@ -1,0 +1,26 @@
+name: Logic Quest test
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'games/logic-equivalence/**'
+      - 'tests/logic*.test.mjs'
+      - '.github/workflows/logic-quest.yml'
+  pull_request:
+    paths:
+      - 'games/logic-equivalence/**'
+      - 'tests/logic*.test.mjs'
+      - '.github/workflows/logic-quest.yml'
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check games/logic-equivalence/app.mjs
+      - run: node --check games/logic-equivalence/logic.mjs
+      - run: node --test tests/logic.test.mjs tests/logic-security.test.mjs
