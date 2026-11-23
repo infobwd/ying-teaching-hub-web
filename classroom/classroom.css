@@ -9,3 +9,5 @@ dialog{border:1px solid var(--border);border-radius:19px;box-shadow:0 22px 70px 
 @media(max-width:640px){.shell{width:calc(100% - 30px)}.header-inner{min-height:77px}.brand strong{font-size:1rem}.brand small{max-width:185px;font-size:.66rem}.brand img{height:43px;width:43px}.status-action{font-size:.79rem;padding:8px 10px}.section-top{align-items:flex-end}.section-top .status-pill{font-size:.68rem;padding:6px 8px}.scene{height:clamp(250px,70vw,340px)}.teacher-label{left:5%;top:38%;font-size:.73rem}.panel-content{padding:18px}.stat strong{font-size:1.5rem}.stat small{font-size:.65rem}.feature-grid{grid-template-columns:1fr}.lesson-card small{display:none}.footer{flex-direction:column;gap:6px}.main-actions .action{flex:1}.content-section{padding-top:28px}}
 @media(max-width:370px){.brand small{max-width:138px}.scene-badge{font-size:.65rem}.course-switch button{font-size:.8rem}.mobile-nav a{font-size:.66rem}.stat small{font-size:.59rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.published-item{display:block;padding:10px 0;text-decoration:underline;color:var(--green)}
