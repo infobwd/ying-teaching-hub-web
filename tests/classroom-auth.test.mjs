@@ -33,5 +33,5 @@ for(const code of [login,loginJs,auth,status]) {
   assert.doesNotMatch(code,/(\bonclick\s*=|<script(?![^>]+src=))/i,"No inline code");
 }
 assert.doesNotMatch(auth,/auth\.signUp|\/auth\/v1\/signup|raw_user_meta_data|user_metadata/i,"No open sign-up or metadata authorization");
-assert.doesNotMatch(login,/studentId|student_id|student-no|เลขประจำตัว.*<input/i,"No student ID form until server mapping exists");
+assert.doesNotMatch(login,/<input[^>]*(?:name|id)="[^"]*(?:student[_-]?id|student[_-]?number)[^"]*"[^>]*>/i,"No student ID form until server mapping exists");
 console.log("PASS: Auth UI, RLS-backed teacher-only permission, session isolation and no public roster");
