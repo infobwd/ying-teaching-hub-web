@@ -1,24 +1,24 @@
-/** Truth-table checked exercises grounded in the supplied Thai worksheet and equivalence summary. */
-export const SERIES_ID = 'ying-equivalence-2569-v1';
+/** Fifteen exact equivalence laws from the latest supplied ONE-PAGE reference only. */
+export const SERIES_ID = 'ying-equivalence-2569-photo-only-v2';
 export const TOTAL_QUESTIONS = 15;
 export const BANK = Object.freeze([
-  {id:'e1', source:'แบบฝึกหัดที่ 2', left:'~(p ∨ q)', right:'~p ∨ ~q', corrected:'~p ∧ ~q', law:'กฎเดอมอร์แกน: นิเสธของ “หรือ” ต้องเปลี่ยนเป็น “และ” พร้อมนิเสธแต่ละประพจน์', fixed:true},
-  {id:'e2', source:'แบบฝึกหัดที่ 2', left:'p → q', right:'~q → ~p', corrected:'~q → ~p', law:'การสลับที่และนิเสธ (บทกลับสลับนิเสธ) ให้ประพจน์สมมูลกัน', fixed:true},
-  {id:'e3', source:'แบบฝึกหัดที่ 2', left:'p ∧ (q ∨ r)', right:'(p ∧ q) ∨ r', corrected:'(p ∧ q) ∨ (p ∧ r)', law:'สมบัติแจกแจง: p ต้องเชื่อมด้วย “และ” กับทั้ง q และ r', fixed:true},
-  {id:'e4', source:'แบบฝึกหัดที่ 2', left:'~(p → q)', right:'p ∧ ~q', corrected:'p ∧ ~q', law:'นิเสธของ “ถ้า p แล้ว q” สมมูลกับ p เป็นจริง และ q เป็นเท็จ', fixed:true},
-  {id:'e5', source:'แบบฝึกหัดที่ 2', left:'~(~p)', right:'p', corrected:'p', law:'นิเสธซ้อนสองชั้นสมมูลกับประพจน์เดิม', fixed:true},
-  {id:'s2', source:'รูปแบบประพจน์สมมูล',left:'p ∧ q',right:'q ∧ p',wrong:'p ∨ q',corrected:'q ∧ p',law:'สมบัติการสลับที่ของ “และ”'},
-  {id:'s3', source:'รูปแบบประพจน์สมมูล',left:'p ∨ q',right:'q ∨ p',wrong:'p ∧ q',corrected:'q ∨ p',law:'สมบัติการสลับที่ของ “หรือ”'},
-  {id:'s4', source:'รูปแบบประพจน์สมมูล',left:'p ↔ q',right:'q ↔ p',wrong:'p → q',corrected:'q ↔ p',law:'สมบัติการสลับที่ของ “ก็ต่อเมื่อ”'},
-  {id:'s5', source:'รูปแบบประพจน์สมมูล',left:'(p ∧ q) ∧ r',right:'p ∧ (q ∧ r)',wrong:'p ∧ (q ∨ r)',corrected:'p ∧ (q ∧ r)',law:'สมบัติการเปลี่ยนกลุ่มของ “และ”'},
-  {id:'s6', source:'รูปแบบประพจน์สมมูล',left:'(p ∨ q) ∨ r',right:'p ∨ (q ∨ r)',wrong:'p ∨ (q ∧ r)',corrected:'p ∨ (q ∨ r)',law:'สมบัติการเปลี่ยนกลุ่มของ “หรือ”'},
-  {id:'s7', source:'รูปแบบประพจน์สมมูล',left:'~(p ∧ q)',right:'~p ∨ ~q',wrong:'~p ∧ ~q',corrected:'~p ∨ ~q',law:'กฎเดอมอร์แกน: นิเสธ “และ” ได้ “หรือ” ของนิเสธ'},
-  {id:'s9', source:'รูปแบบประพจน์สมมูล',left:'p → q',right:'~p ∨ q',wrong:'p ∨ ~q',corrected:'~p ∨ q',law:'ประพจน์เงื่อนไขสมมูลกับ “ไม่ p หรือ q”'},
-  {id:'s11',source:'รูปแบบประพจน์สมมูล',left:'p ↔ q',right:'(p → q) ∧ (q → p)',wrong:'(p → q) ∨ (q → p)',corrected:'(p → q) ∧ (q → p)',law:'“ก็ต่อเมื่อ” ต้องมีเงื่อนไขทั้งสองทิศทางพร้อมกัน'},
-  {id:'s13',source:'รูปแบบประพจน์สมมูล',left:'p ∨ (q ∧ r)',right:'(p ∨ q) ∧ (p ∨ r)',wrong:'(p ∨ q) ∨ (p ∨ r)',corrected:'(p ∨ q) ∧ (p ∨ r)',law:'สมบัติแจกแจงของ “หรือ” เหนือ “และ”'},
-  {id:'s14',source:'รูปแบบประพจน์สมมูล',left:'p ∨ p',right:'p',wrong:'~p',corrected:'p',law:'สมบัติการซ้ำของ “หรือ”'},
-  {id:'s15',source:'รูปแบบประพจน์สมมูล',left:'p ∧ p',right:'p',wrong:'~p',corrected:'p',law:'สมบัติการซ้ำของ “และ”'}
+  Object.freeze({id:'s1', source:'ภาพสรุปสมมูล ข้อ 1', left:'~(~p)', right:'p', law:'สมบัตินิเสธซ้อนสองชั้น'}),
+  Object.freeze({id:'s2', source:'ภาพสรุปสมมูล ข้อ 2', left:'p ∧ q', right:'q ∧ p', law:'สมบัติการสลับที่ของ “และ”'}),
+  Object.freeze({id:'s3', source:'ภาพสรุปสมมูล ข้อ 3', left:'p ∨ q', right:'q ∨ p', law:'สมบัติการสลับที่ของ “หรือ”'}),
+  Object.freeze({id:'s4', source:'ภาพสรุปสมมูล ข้อ 4', left:'p ↔ q', right:'q ↔ p', law:'สมบัติการสลับที่ของ “ก็ต่อเมื่อ”'}),
+  Object.freeze({id:'s5', source:'ภาพสรุปสมมูล ข้อ 5', left:'(p ∧ q) ∧ r', right:'p ∧ (q ∧ r)', law:'สมบัติการเปลี่ยนกลุ่มของ “และ”'}),
+  Object.freeze({id:'s6', source:'ภาพสรุปสมมูล ข้อ 6', left:'(p ∨ q) ∨ r', right:'p ∨ (q ∨ r)', law:'สมบัติการเปลี่ยนกลุ่มของ “หรือ”'}),
+  Object.freeze({id:'s7', source:'ภาพสรุปสมมูล ข้อ 7', left:'~(p ∧ q)', right:'~p ∨ ~q', law:'กฎเดอมอร์แกนสำหรับ “และ”'}),
+  Object.freeze({id:'s8', source:'ภาพสรุปสมมูล ข้อ 8', left:'~(p ∨ q)', right:'~p ∧ ~q', law:'กฎเดอมอร์แกนสำหรับ “หรือ”'}),
+  Object.freeze({id:'s9', source:'ภาพสรุปสมมูล ข้อ 9', left:'p → q', right:'~p ∨ q', law:'รูปสมมูลของประพจน์เงื่อนไข'}),
+  Object.freeze({id:'s10', source:'ภาพสรุปสมมูล ข้อ 10', left:'p → q', right:'~q → ~p', law:'รูปสลับที่และนิเสธของประพจน์เงื่อนไข'}),
+  Object.freeze({id:'s11', source:'ภาพสรุปสมมูล ข้อ 11', left:'p ↔ q', right:'(p → q) ∧ (q → p)', law:'รูปสมมูลของประพจน์ก็ต่อเมื่อ'}),
+  Object.freeze({id:'s12', source:'ภาพสรุปสมมูล ข้อ 12', left:'p ∧ (q ∨ r)', right:'(p ∧ q) ∨ (p ∧ r)', law:'สมบัติการแจกแจงของ “และ” เหนือ “หรือ”'}),
+  Object.freeze({id:'s13', source:'ภาพสรุปสมมูล ข้อ 13', left:'p ∨ (q ∧ r)', right:'(p ∨ q) ∧ (p ∨ r)', law:'สมบัติการแจกแจงของ “หรือ” เหนือ “และ”'}),
+  Object.freeze({id:'s14', source:'ภาพสรุปสมมูล ข้อ 14', left:'p ∨ p', right:'p', law:'สมบัติการซ้ำของ “หรือ”'}),
+  Object.freeze({id:'s15', source:'ภาพสรุปสมมูล ข้อ 15', left:'p ∧ p', right:'p', law:'สมบัติการซ้ำของ “และ”'}),
 ]);
+
 function lex(text) {
   const raw=String(text).replace(/\s/g,'');
   const tokens=raw.match(/[pqr~∧∨→↔()]/gu)||[];
@@ -56,27 +56,32 @@ export function areEquivalent(left,right){
   }
   return true;
 }
+
 const rand=()=>{
   if(globalThis.crypto?.getRandomValues){const a=new Uint32Array(1);crypto.getRandomValues(a);return a[0]/4294967296;}
   return Math.random();
 };
 export function shuffle(arr,random=rand){const out=[...arr];for(let i=out.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[out[i],out[j]]=[out[j],out[i]];}return out;}
+/** The student's answer must match one expression from the reference page.
+    All 15 original (left,right) pairs are kept intact; only the choices/order are shuffled.
+    Distractors are also RHS expressions from that same page and truth-table-proven non-equivalent. */
 export function buildRound(random=rand){
-  const fixed=BANK.filter(q=>q.fixed).map(q=>({id:q.id,left:q.left,right:q.right,corrected:q.corrected,law:q.law,source:q.source,answer:areEquivalent(q.left,q.right)}));
-  const selected=shuffle(BANK.filter(q=>!q.fixed),random).slice(0,10);
-  const wrongIds=new Set(shuffle(selected,random).slice(0,5).map(x=>x.id));
-  const extra=selected.map(q=>{const right=wrongIds.has(q.id)?q.wrong:q.right;
-    return {id:q.id,left:q.left,right,corrected:q.corrected,law:q.law,source:q.source,answer:areEquivalent(q.left,right)};});
-  const result=shuffle([...fixed,...extra],random);
-  if(result.length!==TOTAL_QUESTIONS||result.filter(x=>x.answer).length!==8||result.filter(x=>!x.answer).length!==7)
-    throw Error('Unexpected quiz balance');
-  return result;
+  const allRights=[...new Set(BANK.map(q=>q.right))];
+  const questions=BANK.map(q=>{
+    if(!areEquivalent(q.left,q.right))throw Error('Reference source formula is not equivalent: '+q.id);
+    const candidates=allRights.filter(r=>r!==q.right && !areEquivalent(q.left,r));
+    if(candidates.length<3)throw Error('Insufficient source-only distractors for '+q.id);
+    const options=shuffle([q.right,...shuffle(candidates,random).slice(0,3)],random);
+    return {...q,answer:q.right,options};
+  });
+  return shuffle(questions,random);
 }
 export function calculate(questions,answers){
-  const answered=questions.filter(q=>answers[q.id]===true||answers[q.id]===false);
+  const answered=questions.filter(q=>q.options.includes(answers[q.id]));
   const correct=answered.filter(q=>answers[q.id]===q.answer).length;
   return {correct,total:questions.length,answered:answered.length,percent:Math.round(correct/questions.length*100)};
 }
+
 export function validateStudent(input){
   const studentId=String(input.studentId||'').trim().replace(/\s/g,'');
   const room=String(input.room||'').trim();const given=String(input.given||'').trim();const family=String(input.family||'').trim();
